@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+<body>
+    <script>
+        const key = "gender";
+        let person = {
+            name:"Thommy",
+            lastname:"Ginder",
+            age:23,
+            gender:"male",
+            interests:["Coding","WingChun","Music","Astronomy"],
+            address:{
+                street: "Via delle Gardenie",
+                number: "SNC",
+                cap: "09044",
+                province: "CA",
+                city: "Quartucciu"
+            },
+            wave : function(){
+                console.log(`Hi, I am ${this.name}`)
+            }
+        }
+        console.log(person.name);
+        console.log(person.interests[2]);
+        console.log(person.address.street);
+        person.wave();
+        console.log(person["name"]);
+        console.log(person["interests"][1]);
+        console.log(person["address"]["cap"]);
+        console.log(person.key);
+        console.log(person[key])
+        person.name = "Giggino";
+        console.log(person.name);
+        person.preferiteColor = "Blue";
+        console.log(person.preferiteColor)
+    </script>
+</body>
+</html>

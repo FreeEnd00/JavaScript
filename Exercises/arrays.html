@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+    <script>
+        let regioni = ["Sardegna","Campania","Sicilia","Lazio","Umbria","Piemonte"]
+            console.log(regioni)
+            console.log(regioni.length) // lunghezza array da 0
+            console.log(regioni[1]) //secondo valore dell'array
+            console.log(regioni[regioni.length-1]) // ultimo valore dell'array
+        let alcuneRegioni = regioni.join(",") //trasforma un'array in stringa
+            console.log(alcuneRegioni)
+            sempreRegioni = alcuneRegioni.split(",") //trasforma una stringa in array
+            console.log(sempreRegioni)
+            regioni.push("Liguria") //aggiunge un valore alla fine di un'array
+            console.log(regioni)
+            regioni.pop() //elimina l'ultimo valore di un'array
+            console.log(regioni)
+            regioni.unshift("Molise") //aggiunge un valore all'inizio di un'array
+            console.log(regioni)
+            regioni.shift() //rimuove il primo valore di un'array
+            console.log(regioni)
+            for(i=0; i<regioni.length; i++){ //ciclo per l'elencare i valori delle array
+                console.log(regioni[i]);
+            }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        input{
+            border: none;
+            border-radius: 25%;
+            background-color: rgb(192, 189, 185);
+            padding: 0.7rem;
+            margin-bottom: 1rem;
+        }
+        button{
+            border: none;
+            color: white;
+            background-color: black;
+            border-radius: 15%;
+            padding: 2rem;
+            cursor: pointer;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function JavaScript</title>
+</head>
+<body>
+    <input type="text" name="name" placeholder="Your Name">
+    <br>
+    <button>Say Hi!</button>
+    <h1>Nope!</h1>
+    <script>
+        let button = document.querySelector("button");
+        let title = document.querySelector("h1");
+        let name = document.querySelector("input");
+
+        function wave(name){
+            title.innerHTML = `Hi ${name}`;
+        }
+
+        button.addEventListener("click",()=>{
+            wave(name.value);
+        })
+    </script>
+</body>
+</html>

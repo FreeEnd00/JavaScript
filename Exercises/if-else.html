@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IF Else Statement</title>
+</head>
+<body>
+    <script>
+        let name = "Thomas";
+        let age = 18;
+        
+        if(name == "Thomas"){                                
+            console.log("Welcome Thomas"); 
+        }else if(name == "Gnarlo"){
+            console.log("Welocome Gnarlo");
+        }else if(name == "Genoveffo"){  
+            console.log("Fottiti Gienoveffo")
+        }else{
+            console.log("Salvati Coglione")
+        }
+        if(age <= 25){
+            if(age % 2 == 0){
+                console.log("Numero pari")
+            }else{
+                console.log("Numero dispari")
+            }
+        }
+        if(age <=25 && age % 2 != 0){
+            console.log("ok")
+        }else{
+            console.log("Non va bene")
+        }
+        if(age <=25 || age % 2 != 0){
+            console.log("ok")
+        }else{
+            console.log("Non va bene")
+        }
+        if(!(name == "Thomas")){
+            console.log("Nome sbagliato")
+        }else{
+            console.log("Nome giusto")
+        }
+        let isOnline = true
+        if(!isOnline){
+            console.log("Utente Offline")
+        }else{
+            console.log("Utente Online")
+        }
+        name = "Genovef";
+        switch(name){
+            case "Thomas":
+                console.log("Ciao Thomas");
+                break;
+            case "Gnarlo":
+                console.log("Ciao Gnarlo");
+                break;
+            case "Genoveffo":
+                console.log("Ammazzati Ora  ");
+                break;    
+            default:
+                console.log("CHI CAZZO SEI?")
+        }
+        age = 21;
+        name = (age < 20) ? "Andrea" : "Tiamat";
+        console.log(name)
+    </script>
+</body>
+</html>
