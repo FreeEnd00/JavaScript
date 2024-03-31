@@ -1,0 +1,48 @@
+{
+    "nome":"5B",
+    "scuola":"Ipsia A Meucci",
+    "insegnanti": [
+        {
+            "nome":"Angela",
+            "cognome":"Ballerina",
+            "materieInsegnate":["Chimica","Fisica"]
+        },
+        {
+            "nome":"Benito",
+            "cognome":"Mussellini",
+            "materieInsegnate":["Italiano","Storia"]  
+        },
+        {
+            "nome":"Antonella",
+            "cognome":"Vatterino",
+            "materieInsegnate":["Informatica","Elettronica"]
+        }
+    ],
+    "alunni":[
+        {
+            "nome":"Giovannino",
+            "cognome":"Salsiccia",
+            "hobby":"Serfing subbaqueo"
+        },
+        {
+            "nome":"Timona",
+            "cognome":"Pippone",
+            "hobby":"Porno estremo"
+        },
+        {
+            "nome":"Pillolino",
+            "cognome":"Cignetto",
+            "hobby":"Migrare clandestinamente"
+        }
+    ],
+    "orari":[
+        {
+            "primaOra":"Italiano",
+            "secondaOra":"Storia",
+            "terzaOra":"Informatica",
+            "quartaOra":"Elettronica",
+            "quintaOra":"Chimica"
+        }
+    ]
+
+}

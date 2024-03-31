@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP Programmazione ad Oggetti</title>
+</head>
+<body>
+    <script>
+        function Person(firstname,lastname,age,gender,interests){
+            this.firstname = firstname;
+            this.lastname = lastname;
+            this.age = age;
+            this.gender = gender;
+            this.interests = interests;
+            this.bio = function(){
+                console.log(`${this.firstname} ${this.lastname} is 
+                ${(this.gender == "Male") ? "a boy" : "a girl"} ,is a ${this.age} years old who likes ${this.interests.join(",")}`);
+            };
+              this.greetings = function(){
+                console.log(`Hi, I am ${this.firstname}`);
+            };
+        }     
+        const person1 = new Person("Thomas", "Ginder", 23, "Male", ["Coding"," WingChun"," Gaming"]);
+        const person2 = new Person("Filomena","Simbirizza",87,"Famale",["Reading books " , " Killing babys", " Destroy Universes"]);
+
+        console.log(person1);
+        console.log(person2);
+        person1.greetings();
+        person2.greetings();
+        person1.bio();
+        person2.bio();
+
+        function Teacher(firstname, lastname, age, gender,interests,subject){
+            Person.call(this,firstname, lastname, age, gender,interests);
+            
+            this.subject = subject;
+            this.moreGreetings = function(){
+                console.log(`Goomorning, I'm ${this.firstname}, ${this.lastname}`);
+            };
+        };
+        const teacher = new Teacher("Pina", "Scovolino",65,["Surfing","Sell kid kidneys","Receate Shoa"],"Astrofisic");
+        console.log(teacher);
+        teacher.moreGreetings();
+    </script>
+    <script>
+        class Persona{
+            constructor(nome,cognome,eta,genere,interessi){
+                this.nome = nome;
+                this.cognome = cognome;
+                this.eta = eta;
+                this.genere = genere;
+                this.interessi = interessi;
+            };
+            saluta(){
+                console.log(`Ciao sono ${this.nome}`);
+            };
+        };
+        class Insegnante extends Persona{
+            constructor(nome,cognome,eta,genere,interessi,materia){
+                super(nome,cognome,eta,genere,interessi);
+
+                this.materia = materia;
+            };
+            get materia(){
+                return this._materia;
+            }
+            set materia(nuovaMateria){
+                This._materia =nuovaMateria;
+            }
+            riprendiAlunno(nomeAlunno){
+                console.log(`${nomeAlunno} Ammazzati bastardo!`);
+            };
+        };
+        const insegnante = new Insegnante("Balorda","Molto",81,"femmina",["Picchiare infanti","Negazionista della terra a tegamino","Bisonte furry"],"Filosofia");
+        insegnante.riprendiAlunno("TestaDiMerda");
+        console.log(insegnante.materia);
+        insegnante.materia = "Tedesco"
+        console.log(insegnante.materia)
+    </script>
+</body>
+</html>
