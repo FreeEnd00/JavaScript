@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async tutorial</title>
+</head>
+<body>
+    <button>Vai!</button>
+    <img src="https://picsum.photos/55">
+    <script>
+        const btn = document.querySelector("button");
+        btn.addEventListener("click", () =>{
+            alert("You clicked me!");
+            
+            let pElem = document.createElement("p");
+            pElem.textContent = "This is a new added paragraph.";
+            document.body.appendChild(pElem);
+        });
+        let response = fetch("htpps//picsum.photos/55");
+        let blob = response.blob();
+        
+    </script>
+</body>
+</html>
