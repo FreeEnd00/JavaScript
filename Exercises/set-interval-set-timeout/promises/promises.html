@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Promises</title>
+</head>
+<body>
+    <script>
+        // chooseTopping(function(toppings){  
+        //     placeOrder(toppings, function(order){
+        //         collectOrder(order, function(pizza){
+        //             eatPizza(pizza);
+        //         },failureCallback);
+        //     },failureCallback);
+        // },failureCallback);
+
+
+        // chooseTopping()
+        //     .then(toppings => placeOrder(topping))
+        //     .then(order => collectOrder(order))
+        //     .then(pizza => eatPizza(pizza))
+        //     .catch(failureCallback);
+
+        // fetch("my-photo.jpg")
+        //  .then(response => {
+        //     // if(!response.ok){
+        //     //  throw new Error(`HTTP error! Status: ${response.status}`);            }
+        //     //  else {
+        //         return response.blob();
+        //  })
+        //  .then(myBlob =>{
+        //     let objectURL = URL.createObjectURL(myBlob);
+        //     let image = document.createElement("img");
+        //     image.src = objectURL;
+        //     document.body.appendChild(image);
+        //  })
+        //  .catch(e =>{
+        //     console.log("There has been a problem with your fetch operation: "+ e.message);
+        //  });
+
+
+        // let timeoutPromise = new Promise((resolve,reject) =>{
+        //     setTimeout(function(){
+        //         resolve("Success!");
+        //     },2000);
+        // });
+
+        function timeoutPromise(message,interval) {
+            return new Promise((resolve,reject) =>{
+                if(message === "" || typeof message !== "string"){
+                    reject("Message is empty or not a string");    
+                } else if(interval < 0 || typeof interval !== "number"){
+                    reject("Interval is negative or not a number")
+                } else {
+                    setTimeout(function(){
+                        resolve(message);
+                    },interval);
+                }
+            });
+        };
+
+        timeoutPromise("Hello",10000)
+         .then(message => {
+            alert(message);
+         })
+         .catch(e => {
+            console.log("Error: " + e);
+         });
+    </script>
+</body>
+</html>
