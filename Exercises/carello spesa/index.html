@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        P{
+            text-align: center;
+            display: flex;
+            align-items: center;
+        }
+        img{
+            width: 5rem;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 1 tabella prodotti json</title>
+</head>
+<body>
+    <button>Open Tab</button>
+    <!-- <div class="tabella" style="display: flex; justify-content: space-around; font-weight: bold;">
+        <div id="firstRow">
+            <h2>Prodotto</h2>
+            <h2>Prezzo</h2>
+            <h2>Foto</h2>
+        </div>
+        <div id="secondRow">
+            
+        </div>
+        <div id="thirdRow">
+            
+        </div>
+    </div> -->
+    <main>
+        <div class="tabella" style="display: flex; flex-direction: column;">
+            <div class="titlerow" style="display: flex; justify-content: space-around;">
+                <div class="foto"><h2>Foto</h2></div>
+                <div id="prodotto"><h2>Prodotto</h2></div>
+                <div id="prezzo"><h2>Prezzo</h2></div>
+            </div>
+            <div id="pasta" style="display: flex; justify-content: space-around;"></div>
+            <div id="showerGel" style="display: flex; justify-content: space-around;"></div>
+            <div id="patate" style="display: flex; justify-content: space-around;"></div>
+        </div>
+    </main>
+    <script>
+        let productFetch;
+        let url = "./listinoPrezzi.json";
+        
+        // faaccio un fetch del file json per poterlo utillizzare nel mio codice
+        fetch(url)
+        .then(response => response.json())
+        .then(json => {
+            productFetch = json;
+
+            //creo la prima riga ovvero quella per la Pasta
+            let pasta = document.getElementById("pasta");
+            let pastaName = document.createElement("p");
+            pastaName.textContent = productFetch.prodotti[0].nome;
+            let pastaPrice = document.createElement("p");
+            pastaPrice.textContent = productFetch.prodotti[0].prezzo + "€";
+            let pastaFoto = document.createElement("img");
+            pastaFoto.src = productFetch.prodotti[0].immagine;
+
+            pasta.appendChild(pastaFoto);
+            pasta.appendChild(pastaName);
+            pasta.appendChild(pastaPrice);
+            //creo la seconda riga per il bagnoschiuma
+            let showerGel =document.getElementById("showerGel");
+            let showerGelName = document.createElement("p");
+            showerGelName.textContent = productFetch.prodotti[1].nome;
+            let showerGelPrice = document.createElement("p");
+            showerGelPrice.textContent = productFetch.prodotti[1].prezzo + "€";
+                let showerGelFoto = document.createElement("img");
+            showerGelFoto.src = productFetch.prodotti[1].immagine;
+            
+
+            showerGel.appendChild(showerGelFoto);
+            showerGel.appendChild(showerGelName)
+            showerGel.appendChild(showerGelPrice)
+            
+
+            // creo la terza riga per le patate
+            let patate = document.getElementById("patate");
+            let potatoFoto = document.createElement("img");
+            potatoFoto.src = productFetch.prodotti[2].immagine;
+            let potatoName = document.createElement("p");
+            potatoName.textContent = productFetch.prodotti[2].nome;
+            let potatoPrice = document.createElement("p");
+            potatoPrice.textContent = productFetch.prodotti[2].prezzo + "€";
+        
+           
+
+            patate.appendChild(potatoFoto);
+            patate.appendChild(potatoName);
+            patate.appendChild(potatoPrice)
+        });
+
+    </script>
+</body>
+</html>

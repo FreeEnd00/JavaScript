@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio Due Javascript</title>
+</head>
+<body>
+    <script>
+        // questo codice dovrà ritornare il giorno della settimana corrente
+        const support = "Oggi è ";
+        let paragrafo = document.createElement("p")
+        document.body.appendChild(paragrafo)
+        const dataCorrente = new Date();
+        const giornoCorrente = dataCorrente.getDay();
+        const giornoDelMese = dataCorrente.getDate();
+        let meseCorrente = dataCorrente.getMonth();
+        const annoCorrente = dataCorrente.getFullYear();
+        function mostraOrario(){
+            let date = new Date();
+            let ora = date.toLocaleTimeString();
+            let ancor = document.createElement("p");
+            ancor.textContent = ora;
+            if(giornoCorrente == 0){
+            paragrafo.textContent = support + "Domenica " + giornoDelMese + " " + meseCorrente + " del " + annoCorrente + " e sono le " + ora  ;
+        }else if(giornoCorrente == 1){
+            paragrafo.textContent = support + "Lunedì " + giornoDelMese + " " + meseCorrente + " del " + annoCorrente + " e sono le " + ora  ;
+        }else if(giornoCorrente == 2){ 
+            paragrafo.textContent = support + "Martedì " + giornoDelMese + " " + meseCorrente + " del " + annoCorrente + " e sono le " + ora  ;
+        }else if(giornoCorrente == 3){
+            paragrafo.textContent = support + "Mercoledì " + giornoDelMese + " " + meseCorrente + " del " + annoCorrente + " e sono le " + ora  ;
+        }else if(giornoCorrente == 4){
+            paragrafo.textContent = support + "Giovedì " + giornoDelMese + " " + meseCorrente + " del " + annoCorrente + " e sono le " + ora  ; 
+        }else if(giornoCorrente == 5){
+            paragrafo.textContent = support + "Venerdì " + giornoDelMese + " " + meseCorrente + " del " + annoCorrente + " e sono le " + ora  ;
+        }else{
+            paragrafo.textContent = support + "Sabato " + giornoDelMese + " " + meseCorrente + " del " + annoCorrente + " e sono le " + ora  ;
+        };
+        }
+        
+        const oraEsatta = setInterval(mostraOrario,1000);
+        if(meseCorrente == 0){
+            meseCorrente = "Gennaio";
+        }else if(meseCorrente == 1){
+            meseCorrente = "Febbraio";
+        }else if(meseCorrente == 2){
+            meseCorrente = "Marzo";
+        }else if(meseCorrente == 3){
+            meseCorrente = "Aprile";
+        }else if(meseCorrente == 4){
+            meseCorrente = "Maggio";
+        }else if(meseCorrente == 5){
+            meseCorrente = "Giugno";
+        }else if(meseCorrente == 6){
+            meseCorrente = "Luglio";
+        }else if(meseCorrente == 7){
+            meseCorrente = "Agosto";
+        }else if(meseCorrente == 8){
+            meseCorrente = "Settembre";
+        }else if(meseCorrente == 9){
+            meseCorrente = "Ottobre";
+        }else if(meseCorrente == 10){
+            meseCorrente = "Novembre";
+        }else{
+            meseCorrente = "Dicembre";
+        };
+
+
+
+       
+       
+        
+    </script>
+</body>
+</html>

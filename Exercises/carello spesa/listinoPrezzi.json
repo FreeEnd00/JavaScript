@@ -1,0 +1,21 @@
+{
+    "nome" : "listinoPrezzi",
+    "supermercato":"LIDL",
+    "prodotti": [
+        {
+            "nome":"Pasta",
+            "prezzo":"3,18",
+            "immagine":"./imgProdotti/pasta.jpeg"
+        },
+        {
+            "nome":"Bagnoschiuma",
+            "prezzo":"1,48",
+            "immagine":"./imgProdotti/bagnoschiuma.webp"
+        },
+        {
+            "nome":"Patate",
+            "prezzo":"2,99",
+            "immagine":"./imgProdotti/patate.jpg"
+        }
+    ]
+}
