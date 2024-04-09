@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Literals JS</title>
+</head>
+<body>
+    <script>
+        //Template literal stringa dentro stringa
+        let luogo =  "Galleria Anale";
+        let paragLiteral = document.createElement("p");
+        document.body.appendChild(paragLiteral);
+        let stringaLiteral = `Stiamo per entrare in ${luogo}`
+        paragLiteral.textContent = stringaLiteral
+        //Somma di numeri literal
+        let num1 = 49;
+        let num2 = 23;
+        let somma = document.createElement("p");
+        document.body.appendChild(somma);
+        somma.textContent = `La somma tra ${num1} e ${num2} è: ${num1 + num2}`;
+        //Identità personacon literal
+        let nome = "Giagibaffo";
+        let eta = "29";
+        let citta = "Barumini";
+        let pNome = document.createElement("p");
+        document.body.appendChild(pNome);
+        let pEta = document.createElement("p");
+        document.body.appendChild(pEta);
+        let pCitta = document.createElement("p");
+        document.body.appendChild(pCitta);
+        pNome.textContent = `Nome: ${nome}`;
+        pEta.textContent = `Età: ${eta}`;
+        pCitta.textContent = `Citta: ${citta}`;
+        //lista HTML ASSURDO
+        const oggetti = [" Ancora ","Binocolo ","Carro ","Dardo ","Etanolo ","Finestra ","Giroscopio ","Hotel ","Icona ","Json ","Kart ","Lingotto ","Minerale ","Nitro ","Opale ","Posacenere ","Quaderno ","Rastrello ","Siluro ","Tavolo ","Uncino ","Violino ","Water ","Yoghurt ","Zavorra "];
+        let lista = "<ul>";
+        for (let oggetto of oggetti){
+            lista += ` <li> ${oggetto} </li> `;
+        };
+        lista += "</ul>";
+        console.log(lista)
+        let listaHTML = document.createElement("ul");
+        document.body.appendChild(listaHTML)
+        listaHTML.textContent = lista
+    </script>
+</body>
+</html>

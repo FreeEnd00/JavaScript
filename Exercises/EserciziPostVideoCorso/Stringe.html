@@ -52,9 +52,16 @@
         document.body.appendChild(testo8);
         let stringa6 = "Salerno,è,una,merda,dio,porco";
         let strArray = stringa6.split(",");
-        console.log(strArray)
-        testo8.textContent = stringa6 + " Diventa: " + strArray;
-
+        let cons = console.log(strArray);
+        testo8.textContent = stringa6 + " Diventa: " + "["+strArray+"]";
+        //trim() rimuove spazi finali e iniziali di una stringa
+        let triming = document.createElement("p");
+        document.body.appendChild(triming);
+        let diocan = "         !DIOCANE!         "
+        let trimed = diocan.trim();
+        triming.textContent = trimed;
+        console.log(diocan);
+        console.log(trimed);
     </script>
 </body>
 </html>
