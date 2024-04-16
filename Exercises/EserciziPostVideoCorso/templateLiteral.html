@@ -6,6 +6,8 @@
     <title>Template Literals JS</title>
 </head>
 <body>
+    <ul id="list">
+    </ul>
     <script>
         //Template literal stringa dentro stringa
         let luogo =  "Galleria Anale";
@@ -33,16 +35,68 @@
         pEta.textContent = `Età: ${eta}`;
         pCitta.textContent = `Citta: ${citta}`;
         //lista HTML ASSURDO
+
+
+
         const oggetti = [" Ancora ","Binocolo ","Carro ","Dardo ","Etanolo ","Finestra ","Giroscopio ","Hotel ","Icona ","Json ","Kart ","Lingotto ","Minerale ","Nitro ","Opale ","Posacenere ","Quaderno ","Rastrello ","Siluro ","Tavolo ","Uncino ","Violino ","Water ","Yoghurt ","Zavorra "];
-        let lista = "<ul>";
-        for (let oggetto of oggetti){
-            lista += ` <li> ${oggetto} </li> `;
-        };
-        lista += "</ul>";
-        console.log(lista)
-        let listaHTML = document.createElement("ul");
-        document.body.appendChild(listaHTML)
-        listaHTML.textContent = lista
+        // let lista = "<ul>";   
+        // let listObj = document.getElementById("list")     
+        // for (let oggetto of oggetti){
+        //    listObj = `${oggetto} `;
+        // };
+        // lista += "</ul>";
+        // console.log(lista)
+        // let listaHTML = document.createElement("ul");
+        // document.body.appendChild(listaHTML)
+        // listaHTML.textContent = lista
+
+            let listaHTML = document.getElementById("list");
+            for(let x = 0; x < oggetti.length; x++){
+                let ogg = oggetti[x];
+                let listItem = document.createElement("li");
+                listItem.textContent = ogg;
+                listaHTML.appendChild(listItem);
+            }
+
+
+        //formato e-mail
+        let Email = document.createElement("p");
+        document.body.appendChild(Email);
+        let mail = "GinderPark@assistenza.it";
+        let contenuto = `
+        Ciao ${nome}
+
+        Benvenuto su GinderPark da tutto il team, speriamo che la vostra
+        permanezia sia di vostro gradimento, per ogni ogni domanda e problema
+
+        contattateci subito a ${mail}
+        Buona Giornata
+        `;
+        console.log(contenuto)
+        Email.textContent = contenuto
+        //Url literal
+        let urlyt ="https://www.youtube.com/";
+        let feed = "feed/";
+        let subscriptions = "subscriptions";
+        let fullUrl = `${urlyt}${feed}${subscriptions}`;
+        let par = document.createElement("a");
+        document.body.appendChild(par);
+        par.setAttribute("href","https://www.youtube.com/")
+        par.textContent = fullUrl
+        //valore monetario literal
+        let moneta = 12.50;
+        let conto = document.createElement("p");
+        document.body.appendChild(conto);
+        conto.textContent = `Il tuo credito bancario ammonta a ${moneta.toFixed(2)}€`;
+        //input literal
+        const name = prompt("Inserire Nome: ");
+        const age = prompt("Inserire età: ");
+        const region = prompt("Inserire regione: ");
+        let persona = document.createElement("p");
+        document.body.appendChild(persona);
+        persona.textContent = `Ciao mi chiamo ${name} ho ${age} anni e
+        vengo dalla ${region}.`
     </script>
+   
 </body>
 </html>

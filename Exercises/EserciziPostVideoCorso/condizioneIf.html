@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condizione IF</title>
+</head>
+<body>
+    <script>
+        //programma in grado di verificare se un numero è positivo,
+        //negativo o zero
+        const num = prompt("Digitare numero: ");
+        let risultato = document.createElement("p");
+        document.body.appendChild(risultato);
+        if(num > 0){
+            risultato.textContent = "Il numero è positivo!";
+        }else if(num < 0){
+            risultato.textContent = "Il numero è negativo!";
+        }else{
+            risultato.textContent = "Il numero è uguale a 0!";
+        }
+        //riconoscere un numero pari o dispari
+        let pariOdispari = document.createElement("p");
+        document.body.appendChild(pariOdispari);
+        if(num %2 == 0){
+            pariOdispari.textContent = "Il numero è pari!"
+        }else{
+            pariOdispari.textContent = "Il numero è dispari!"
+        }
+        //verifica età legale per guidare
+        let etaLegale = document.createElement("p");
+        document.body.appendChild(etaLegale);
+        if(num >= 18){
+            etaLegale.textContent ="Hai l'età adatta a guidare una brum brum."
+        }else{
+            etaLegale.textContent = "Non puoi ancora guidare le brum brum."
+        }
+        //punteggio studente
+        const voto = prompt("Inserire il punteggio dello studente: ")
+        let votoFinale = document.createElement("p");
+        document.body.appendChild(votoFinale);
+        if(voto >= 90){
+            votoFinale.textContent = "Il voto finale è: A";
+        }else if(voto >= 80){
+            votoFinale.textContent = "Il voto finale è: B";
+        }else if(voto >= 70){
+            votoFinale.textContent = "Il voto finale è: C";
+        }else{
+            votoFinale.textContent = "Il voto finale è: D";
+        }
+    </script>
+</body>
+</html>
