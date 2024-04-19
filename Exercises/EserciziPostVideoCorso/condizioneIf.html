@@ -9,45 +9,133 @@
     <script>
         //programma in grado di verificare se un numero è positivo,
         //negativo o zero
-        const num = prompt("Digitare numero: ");
-        let risultato = document.createElement("p");
-        document.body.appendChild(risultato);
-        if(num > 0){
-            risultato.textContent = "Il numero è positivo!";
-        }else if(num < 0){
-            risultato.textContent = "Il numero è negativo!";
-        }else{
-            risultato.textContent = "Il numero è uguale a 0!";
-        }
-        //riconoscere un numero pari o dispari
-        let pariOdispari = document.createElement("p");
-        document.body.appendChild(pariOdispari);
-        if(num %2 == 0){
-            pariOdispari.textContent = "Il numero è pari!"
-        }else{
-            pariOdispari.textContent = "Il numero è dispari!"
-        }
-        //verifica età legale per guidare
-        let etaLegale = document.createElement("p");
-        document.body.appendChild(etaLegale);
-        if(num >= 18){
-            etaLegale.textContent ="Hai l'età adatta a guidare una brum brum."
-        }else{
-            etaLegale.textContent = "Non puoi ancora guidare le brum brum."
-        }
-        //punteggio studente
-        const voto = prompt("Inserire il punteggio dello studente: ")
-        let votoFinale = document.createElement("p");
-        document.body.appendChild(votoFinale);
-        if(voto >= 90){
-            votoFinale.textContent = "Il voto finale è: A";
-        }else if(voto >= 80){
-            votoFinale.textContent = "Il voto finale è: B";
-        }else if(voto >= 70){
-            votoFinale.textContent = "Il voto finale è: C";
-        }else{
-            votoFinale.textContent = "Il voto finale è: D";
-        }
+        // const num = prompt("Digitare numero: ");
+        // let risultato = document.createElement("p");
+        // document.body.appendChild(risultato);
+        // if(num > 0){
+        //     risultato.textContent = "Il numero è positivo!";
+        // }else if(num < 0){
+        //     risultato.textContent = "Il numero è negativo!";
+        // }else{
+        //     risultato.textContent = "Il numero è uguale a 0!";
+        // }
+        // //riconoscere un numero pari o dispari
+        // let pariOdispari = document.createElement("p");
+        // document.body.appendChild(pariOdispari);
+        // if(num %2 == 0){
+        //     pariOdispari.textContent = "Il numero è pari!"
+        // }else{
+        //     pariOdispari.textContent = "Il numero è dispari!"
+        // }
+        // //verifica età legale per guidare
+        // let etaLegale = document.createElement("p");
+        // document.body.appendChild(etaLegale);
+        // if(num >= 18){
+        //     etaLegale.textContent ="Hai l'età adatta a guidare una brum brum."
+        // }else{
+        //     etaLegale.textContent = "Non puoi ancora guidare le brum brum."
+        // }
+        // //punteggio studente
+        // const voto = prompt("Inserire il punteggio dello studente: ")
+        // let votoFinale = document.createElement("p");
+        // document.body.appendChild(votoFinale);
+        // if(voto >= 90){
+        //     votoFinale.textContent = "Il voto finale è: A";
+        // }else if(voto >= 80){
+        //     votoFinale.textContent = "Il voto finale è: B";
+        // }else if(voto >= 70){
+        //     votoFinale.textContent = "Il voto finale è: C";
+        // }else{
+        //     votoFinale.textContent = "Il voto finale è: D";
+        // }
+        // //persona maggiorenne e patentata
+        // let verificaPatente = document.createElement("p");
+        // document.body.appendChild(verificaPatente);
+        // let patente = prompt("Hai la patente di guida?:");
+        // if(patente === "Si" || patente === "si"){
+        //     patente = true;
+        // }else if(patente === "No" || patente === "no"){
+        //     patente = false;
+        // }else{
+        //     alert("Errore: caratteri non riconosciuti, rispondere solo con Si/si o No/no")
+        //     patente = prompt("Hai la patente di guida?:");
+        // }
+        // if(num >= 18 && patente == true){
+        //     verificaPatente.textContent = `Hai ${num} anni e possiedi la patente B`;
+        // }else if( num >= 18 && patente === false){
+        //     verificaPatente.textContent = `Hai ${num} anni e non possiedi la patente B`;
+        // }else if (num < 18 && patente === true){
+        //     verificaPatente.textContent = `Errore: è impossibile avere la patente B a ${num} anni`;
+        // }else{
+        //     verificaPatente.textContent = `Hai ${num} anni e non puoi ancora conseguire la patente B`;
+        // }
+        // Anno Bisestile
+        // const anno = prompt("Inserire anno da analizzare:");
+        // let result = document.createElement("p");
+        // document.body.appendChild(result);
+        // if((anno % 4 === 0 && anno % 100 !== 0) || anno % 400 === 0){
+        //     result.textContent = `L'anno ${anno} è bisestile!`
+        // }else{
+        //     result.textContent = `L'anno ${anno} non è bisestile!`
+        // };
+        // palindromo
+        // const parola = prompt("Inserisci la parola palindroma:");
+        // let palindromo = parola.split("");
+        // console.log(palindromo);
+        // console.log(palindromo.length / 2);
+        // let meta = Math.round(palindromo.length / 2);
+        // console.log(meta);
+        // console.log(palindromo[meta]);
+        // let primaMeta = palindromo.slice(0,meta);
+        // console.log(primaMeta);
+        // let ultimaMeta
+        // if(palindromo.length % 2 !== 0){
+        //      ultimaMeta = palindromo.slice((meta-1),palindromo.length)
+        // }else{
+        //      ultimaMeta = palindromo.slice(meta,palindromo.length);
+        // }
+        
+        // ultimaMeta = ultimaMeta.reverse();
+        // console.log(ultimaMeta);
+        // let pm = primaMeta.join("");
+        // pm = pm.toLocaleLowerCase();
+        // console.log(pm);
+        // let um = ultimaMeta.join("");
+        // console.log(um);
+        // let testo = document.createElement("p");
+        // document.body.appendChild(testo);
+        // if(pm === um ){
+        //     testo.textContent = "la parola è palindroma";
+        // }else{
+        //     testo.textContent = "la parola non è palindroma";
+        // }
+        // giorno della settimana 
+        let giorno = document.createElement("p");
+        document.body.appendChild(giorno);
+        let giornoSelezionato = prompt("Inserire il numero del giorno della settimana da 1 a 7");
+            
+            if(giornoSelezionato == 1){
+                giorno.textContent = "Lunedì";
+            }else if(giornoSelezionato == 2 ){
+                giorno.textContent = "Martedì";
+            }else if(giornoSelezionato == 3 ){
+                giorno.textContent = "Mercoledì";
+            }else if(giornoSelezionato == 4 ){
+                giorno.textContent = "Giovedi";
+            }else if(giornoSelezionato == 5 ){
+                giorno.textContent = "Venerdì";
+            }else if(giornoSelezionato == 6 ){
+                giorno.textContent = "Sabato";
+            }else if(giornoSelezionato == 7){
+                giorno.textContent = "Domenica";
+            }else if(giornoSelezionato == 0 || giornoSelezionato >= 8 ){
+                giorno.textContent = "E' stato inserito un numero errato"
+            }
+
+        
+
+
+        
     </script>
 </body>
 </html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch JS</title>
+</head>
+<body>
+    <script>
+        //giorno della settimana
+        const numeroGiorno = 1
+        let giornoDellaSettimana
+        switch (numeroGiorno){
+            case 1:giornoDellaSettimana = "Lunedì";
+            break;
+            case 2:giornoDellaSettimana = "Martedì";
+            break;
+            case 3:giornoDellaSettimana = "Mercoledì";
+            break;
+            case 4:giornoDellaSettimana = "Giovedì";
+            break;
+            case 5:giornoDellaSettimana = "Venerdì";
+            break;
+            case 6:giornoDellaSettimana = "Sabato";
+            break;
+            case 7:giornoDellaSettimana = "Domenica";
+            break;
+            default:giornoDellaSettimana = "Numero non valido!"
+        }
+        console.log(giornoDellaSettimana)
+        //prendere una lettera e descrivere un oggetto 
+        let lettera = "A";
+        let veicolo;
+        switch (lettera){
+            case "A":veicolo = {
+                Marchio : "Honda",
+                Modello : "Civic",
+                Anno : 2004,
+                Carburante : "Diesel",
+                Cilindrata : "1700",
+                Porte : 5
+            };
+            break;
+            case "M":veicolo = {
+                Marchio : "Kawasaki",
+                Modello : "Ninja",
+                Anno : "2009",
+                Carburante : "Benzina",
+                Cilindrata : "2000",
+                Porte : 0
+            };
+            break;
+            case "B":veicolo = {
+                Marchio : "Raptor",
+                Modello : "Mark 3",
+                Tipo : "BMX",
+                Anno : 2020,
+                Carburante : "Piedi",
+                Cilindrata : 0.5,
+                Porte : -1
+            };
+            break;
+            default:veicolo = "Errore: valore errato"
+        }
+        console.log(veicolo)
+        //Mese e stagione
+        let numeroMese = 11;
+        let mese; 
+        let stagione;
+        switch(numeroMese){
+            case 1:mese = "Gennaio";
+            break;
+            case 2:mese = "Febbraio";
+            break;
+            case 3:mese = "Marzo";
+            break;
+            case 4:mese = "Aprile";
+            break;
+            case 5:mese = "Maggio";
+            break;
+            case 6:mese = "Giugno";
+            break;
+            case 7:mese = "Luglio";
+            break;
+            case 8:mese = "Agosto";
+            break;
+            case 9:mese = "Settembre";
+            break;
+            case 10:mese = "Ottobre";
+            break;
+            case 11:mese = "Novembre";
+            break;
+            case 12:mese = "Dicembre";
+            break;
+            default: mese = "Numero non valido!"
+        }
+        console.log(mese)
+        if(numeroMese >= 1 && numeroMese <= 3){
+            stagione = "Inverno";
+        }else if(numeroMese > 3 && numeroMese <= 6){
+            stagione = "Primavera";
+        }else if(numeroMese > 6 && numeroMese <= 9){
+            stagione = "Estate";
+        }else if (numeroMese > 9 && numeroGiorno <= 12){
+            stagione = "Autunno";
+        }else{
+            stagione = "Errore: numero mese errato!"
+        }
+        console.log(stagione)
+        //giorni lavorativi
+        let numeroGiornoLavorativo = 5;
+        let giornoLavorativo ;
+        switch (numeroGiornoLavorativo){
+            case 1:giornoLavorativo = "Lunedì lavorativo";
+            break;
+            case 2:giornoLavorativo = "Martedì lavorativo";
+            break;
+            case 3:giornoLavorativo = "Mercoledì lavorativo";
+            break;
+            case 4:giornoLavorativo = "Giovedì lavorativo";
+            break;
+            case 5:giornoLavorativo = "Venerdì lavorativo";
+            break;
+            default:giornoLavorativo = "Giorno non lavorativo";
+        }
+        console.log(giornoLavorativo)
+        //triangolo Isoscele equilatero o scaleno
+        let a = 20;
+        let b = 20;
+        let c = 20;
+        let type;
+        switch (true){
+            case a === b && b === c:type = "Triangolo Equilatero";
+            break;
+            case a === b || b === c || c === a:type = "Triangolo Isoscele";
+            break;
+            default:type = "Triangolo Scaleno";
+        } 
+        console.log(type)
+        // punteggio ABCDE
+        let punteggio = 100;
+        let voto
+        switch (true){
+            case punteggio >= 0 && punteggio <= 40:voto = "E";
+            break;
+            case punteggio > 40 && punteggio < 60:voto = "D";
+            break;
+            case punteggio >= 60 && punteggio < 80:voto = "C";
+            break;
+            case punteggio >= 80 && punteggio < 90:voto = "B";
+            break;
+            case punteggio >= 90 && punteggio <= 100:voto = "A";
+            break;
+            default:voto = "Errore: Numero fuori limite!"
+        }
+        console.log(voto)
+        //messaggio ben venuto in diverse lingue
+        let lingua = "es";
+        let messaggio;
+        switch (lingua){
+            case "it":messaggio = "Benvenuto!";
+            break;
+            case "en":messaggio = "Welcome!";
+            break;
+            case "es":messaggio = "¡Bienvenido!";
+            break;
+            case "de":messaggio = "Willkommen!";
+            break;
+            default:messaggio = "Errore: Lingua non riconosciuta!"
+        }
+        console.log(messaggio)
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operatore Ternario</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        //numero positivo o negativo
+        let num = prompt("Inserire numero:");
+        let ris = num >= 0 ? "positivo" : "negativo"
+        console.log("Il numero è " + ris);
+        //pari o dispari
+        let pOd = num % 2 == 0 ? "pari" : "dispari"
+        console.log("il numero è " + pOd) 
+        //maggiore minore o uguale 0
+        let magMinUg = 
+        num > 0
+        ? "maggiore di zero"
+        : num < 0 
+        ? "minore di zero"
+        : "uguale a zero" 
+        console.log("Il numero è " + magMinUg)
+        //numero divisibile per secondo numero
+        let secNum = prompt("Inserire secondo numero:");
+        let divisibile = num % secNum === 0 ? "divisibile" :"non divisibile";
+        console.log(`Il numero ${num} è ${divisibile} per il numero ${secNum}`)
+        //prezzo scontato
+        let prezzoNormale = prompt("Prezzo normale:");
+        let sconto = prompt("Sconto:");
+        let prezzoScontato = 
+        prezzoNormale - (prezzoNormale * sconto) /100;
+        console.log("Prezzo scontato: " + prezzoScontato)
+        //definito
+        let def
+        let quest = def = typeof def !== "undefined" ? "definita" : "non definita";
+        //numero compreso tra due numeri
+        let compresoDa = 10;
+        let compresoA = 30;
+        let numCompreso = num <= 30 && num >= 10 ? "è compreso" : "non è compreso";
+        console.log(`Il numero ${num} ${numCompreso} tra ${compresoDa} e ${compresoA}`) 
+        //stringa o numero
+        let stringaONumero = 2;
+        console.log(stringaONumero)
+        console.log(typeof stringaONumero)
+        let verificaTipo = typeof stringaONumero === "string" ? "una stringa" : typeof stringaONumero === "number" ? "un numero" :"altro";
+        console.log("la variabile è " + verificaTipo)
+        //boolean
+        let boolean = prompt("Vero o Falso:");
+        if(boolean === "Vero"){
+            boolean = "vero";
+        }else if(boolean === "Falso"){
+            boolean = "falso";
+        }else if(boolean !== "falso" || boolean !== "vero"){
+            console.log("Errore: èaccettato solo vero o falso!")
+        }
+        if(boolean === "vero"){
+            boolean = true;
+        }else if(boolean == "falso"){
+            boolean = false;
+        }
+        let testBool = boolean === true ? "è vera" : "è falsa"
+        console.log("La variabile Booleana " + testBool)
+    </script>
+</body>
+</html>
