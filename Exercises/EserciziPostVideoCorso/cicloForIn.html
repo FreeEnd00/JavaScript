@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CicloForIn JS</title>
+</head>
+<body>
+    <script>
+        //stampa tutti gli elementi di un oggetto
+        const persona = {
+            nome: "Carlotta",
+            cognome: "Marcialis",
+            nickName: "Mi Lady",
+            eta: 22,
+            occhiali: true,
+            aggettivi: ["Intelligente","Simpatica","Curiosa","Indipendente","Forte","Empatica","Apprensiva","Bellissima"],
+            desiderio: "Vederla ogni giorno",
+            giornoImportante: 13,
+            meseImportante: 4,
+            annoImportante:2024,
+        };
+        for(chiave in persona){
+            console.log(chiave,": ",persona[chiave]);
+        }
+        //somma tra valori numerici di un oggetto
+        somma = 0;
+        for(chiave in persona){
+            if(typeof persona[chiave] === "number"){
+                somma += persona[chiave];
+            }
+        }
+        console.log(somma);
+        //stampa di valori uguali fra due oggetti
+        const animale = {
+            nome: "Simba",
+            codiceIdentificativo: 1345,
+            genere: "Femmina",
+            paeseDorigine: "Africa",
+            specie: "Tigre Africana",
+            eta: 2,
+            habitat: "Savana",
+            salute: "Ottima", 
+            prole: false,
+        };
+        const animale2 = {
+            nome: "Dumbo",
+            codiceIdentificativo: 5431,
+            genere: "Maschio",
+            paeseDorigine: "Africa",
+            specie: "Elefante Africano",
+            eta: 24,
+            habitat: "Savana",
+            salute:"Ottima",
+            prole: false,
+        };
+        let comparazione = "Gli elementi uguali sono: "
+        for(chiave in animale){
+            if(animale[chiave] === animale2[chiave])
+            comparazione += " "+chiave+": "+animale[chiave]+",";
+        }
+        console.log(comparazione);
+        //contare numero caratteri di una stringa
+        let stringa = "Pargolo";
+        let risultato = 0;
+        for(lettera in stringa){
+            risultato ++
+        }
+        console.log("Nella stringa ci sono ",risultato," caratteri.");
+        //stampare solo le chiavi di un oggetto
+        for(chiave in persona){
+            console.log(chiave);
+        }
+        //stampare solo chiavi di tipo striga
+        let soloStringhe = "Le chiavi di tipo stringa sono le seguenti:";
+        for(chiave in persona){
+            if(typeof persona[chiave] === "string"){
+                soloStringhe += " "+chiave+": "+persona[chiave]+",";
+            }
+        }
+        console.log(soloStringhe)
+        //Confronto fra due oggetti uguali
+        const oggetto1 = {
+            forma: "cubica",
+            materiale: "plastico",
+            colore:"blu",
+        };
+        const oggetto2 = {
+            forma: "cubica",
+            materiale: "plastico",
+            colore: "blu",
+        };
+        for(chiave in oggetto1){
+            if(oggetto1[chiave] === oggetto2[chiave]){
+                console.log("Gli oggetti sono uguali tra loro!");
+            }else{
+                console.log("Gli oggetti sono diversi tra loro!");
+            }
+        }
+        //prodotto fra valori numerici di un oggetto
+        const cubo = {
+            lunghezza: 10,
+            altezza:30,
+        };
+        let prodotto = 1;
+        for(chiave in cubo){
+            if(typeof cubo[chiave] === "number"){
+                prodotto *= cubo[chiave];
+            }
+        }
+        console.log("Il prodotto tra i valori numerici dell'oggetto Persona è ",prodotto)
+    </script>
+</body>
+</html>
