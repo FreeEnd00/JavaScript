@@ -54,7 +54,37 @@
         const concatenaArray = array.concat(secondoArray);
         console.log("L'array concatenato è ", concatenaArray)
         //crea array da due array con elementi doppi elimiando questi ultimi
-        
+        const a = [10,20,20,10,43,43,43,67,67,67];
+        const b = [];
+        for(let number of a){
+            if(!b.includes(number)){
+                b.push(number);
+            }
+        }        
+        console.log(b);
+        // elemento di ricerca
+        const c = ["mela","pera","banana","arancia"];
+        const d = "pera";
+        const index = c.indexOf(d);
+        console.log("L'indice di ",d,"è ",index)
+        //.reverse array
+        const e = ["binocolo","menta","ricotta","sfera"];
+        const f = ["binocolo","menta","ricotta","sfera"];
+        const reverseE = e.reverse();
+        console.log(`L'array normale è ${f}, con .reverse diventa ${reverseE}`);
+        //calcolo lunghezza media stringhe presenti in un array
+        let somma = 0;
+        for(let elemento of f){
+            let numeroCaratteri = elemento.length;
+            somma += numeroCaratteri;
+        }
+        let media = somma / f.length;
+        console.log("la media di lunghezze delle stringhe di ",f,"è ",media);
+        //trasformare un array di stringe in una stringa unica separata da spazi
+        const g = ["Carlotta","è","la","mia","galassia!"];
+        const stringaDaArray = g.join(" ");
+        console.log(`L'array ${g} con .join() diventa una stringa: ${stringaDaArray}`);
+         
     </script>
 </body>
 </html>
