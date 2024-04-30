@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclo FOR JS</title>
+</head>
+<body>
+    <script>
+        //ciclo 1 10
+        for (let i = 1; i <= 10; i++){
+            console.log(i)
+        }
+        //somma
+        let numeroUtente = parseInt(prompt("Inserire un Numero:"));
+        let somma = 0;
+        for(let i = 0; i <=numeroUtente;i ++){
+            somma += i;
+        }
+        console.log("la somma è: " + somma)
+        //numeri pari (1 a 20)
+        for (let i = 2;i <= 20; i += 2 ){
+            console.log(i);
+        };
+        //fattoriale
+        let fattoriale = 1;
+        for(i = 1; i <= numeroUtente; i ++){
+            fattoriale *= i;
+        }
+        console.log(`il fattoriale di ${numeroUtente} è ${fattoriale}`)
+        //stampa stringa per numero N
+        const stringaUtente = prompt("Scrivi qualcosa: ");
+        let risultato = "";
+        const numeroRipetizioni = parseInt(prompt("Inserire numero volte ripetizione: "));
+        for(i = 0; i <= numeroRipetizioni; i ++){
+            risultato += stringaUtente;
+        }        
+        console.log("Result: " , risultato)
+        //piramide di n righe di asterischi
+        const numAster = parseInt(prompt("Inserire il numero righe per la piramide di asterischi: "));
+        for(i= 1; i <= numAster; i ++){
+            let riga ="";
+            for(j = 1; j <= i;j ++){
+                riga +="* "
+        }    
+            console.log(riga);
+        }
+        //media tra due array
+        const arrayNumeri = [10,30,46,38,12];
+        let sommaArray = 0;
+        for(i = 0; i < arrayNumeri.length; i ++){
+            somma += arrayNumeri[i];
+        }
+        const media = somma / arrayNumeri.length;
+        console.log("La media è ",media);
+        // lettere stringa riga per riga
+        for(i = 0; i < stringaUtente.length;i ++){
+            console.log(stringaUtente[i]);
+        }
+    </script>
+</body>
+</html>

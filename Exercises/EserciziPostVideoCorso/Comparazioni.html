@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparazioni JavaScript</title>
+</head>
+<body>
+    <p id="numMaggiore"></p>
+    <script>
+        //numero maggiore
+        maggiore = 30;
+        minore = 10;
+        if(maggiore > minore){
+         let numMaggiore = document.getElementById("numMaggiore");
+         numMaggiore.textContent = "Il numero più grande è " + maggiore;    
+        }else{
+            numMaggiore.textContent = "il numero più grande è " + minore;
+        }
+        //stringe in ordine alfabetico
+        let alfabetico = document.createElement("p");
+        document.body.appendChild(alfabetico);
+        let alfa = "Auto"
+        let beta = "Casa"
+        // alfabetico.textContent = "La frase nel più alto ordine alfabetico è... " + (alfa > beta); 
+        if(alfa < beta){
+            alfabetico.textContent = beta;
+        }else{
+            alfabetico.textContent = alfa;
+        }
+        //confronto tra stringa e int uguali
+        let fintoNumero = "18";
+        let numero = 18;
+        let stringaOint = document.createElement("p")
+        document.body.appendChild(stringaOint);
+        if(fintoNumero == numero){
+            stringaOint.textContent = "Il numero e la stringa sono uguali {" + true + "}";
+        }else {
+            stringaOint.textContent = "Il numero e la sringa non sono uguali {" + false + "}";
+        }
+        //confronto assoulto tra stringa e int uguali
+        let diversi = document.createElement("p");
+        document.body.appendChild(diversi);
+        if(fintoNumero === numero){
+            diversi.textContent = "Errore: è impossibile che un numero sia uguale in valore e in tipo"
+        }else {
+            diversi.textContent = "La stringa e il numero sono diversi tra loro {" + false + "}";
+        }
+        //confronto tra numeri diversi
+        let numUno = 22;
+        let numDue = 24;
+        let confronto = document.createElement("P");
+        document.body.appendChild(confronto);
+        if(numUno != numDue){
+            confronto.textContent = "I numeri sono diversi tra loro {" + true + "}";
+        }else{
+            confronto.textContent = "Errore: i numeri sono uguali e dovrebbero essere diversi!!"
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operatori Logici</title>
+</head>
+<body>
+    <script>
+        //Operatore logico AND
+        let a = 80;
+        let b = 80;
+        let c = 37;
+        let d = 39;
+        let testo = document.createElement("p");
+        document.body.appendChild(testo);
+        if(a == b && c != d && (a && b)>(c && d)){
+            testo.textContent = "tutte le condizioni sono vere";
+        }else{
+            testo.textContent = "almeno una condizione è falsa"
+        }
+        //Operatore logico OR
+        let altroTesto = document.createElement("p");
+        document.body.appendChild(altroTesto);
+        if(a == b || c != d || (a || b)>(c || d)){
+            altroTesto.textContent = "almeno una condizione è vera"
+        }else{
+            altroTesto.textContent = "tutte le condizioni sono false"
+        }
+        //Operatore logico NOT
+        let nuovoTesto = document.createElement("p");
+        document.body.appendChild(nuovoTesto);
+        let utenteOnline = true;
+        let date = new Date();
+        let oraDisconnessione = date.getHours();
+        if(oraDisconnessione > 15){
+            nuovoTesto.textContent = "L'utente è Offline {" + !utenteOnline + "}";
+        }else{
+            nuovoTesto.textContent = "L'utene è ancora Online {" + utenteOnline + "}";
+        }
+        // AND e OR
+        let sempreTesto = document.createElement("p");
+        document.body.appendChild(sempreTesto);
+        if(a == b && c != d || a > c && b > d){
+            sempreTesto.textContent = "a è uguale a b ma c è diverso da d OPPURE a è maggiore di c e b è maggiore di d"
+        }else{
+            sempreTesto.textContent = "a è diverso da b ma c è uguale a d OPPURE a è minore di c e b è minore di d"
+        }
+        // Controllo strighe
+        let ancoraTesto = document.createElement("p");
+        let dinuvotesto = document.createElement("p");
+        document.body.appendChild(ancoraTesto);
+        document.body.appendChild(dinuvotesto);
+        let stringaVuota = "";
+        let stringaPiena = "Carlotta";
+         if(stringaPiena == "Carlotta"){
+            dinuvotesto.textContent = "La stringa contiene la parola giusta: " + stringaPiena + " <3 <3 <3 ";
+        }else if(stringaPiena == ""){
+            dinuvotesto.textContent = "Errore: La stringa è vuota"
+        }else{
+            dinuvotesto.textContent = "Errore: La stringa contiene la parola sbagliata: " + stringaPiena;
+        }
+        if(stringaVuota != ""){
+            ancoraTesto.textContent = "La stringa non è vuota: " + stringaVuota;
+        }else if(stringaVuota == ""){
+            ancoraTesto.textContent = "Errore: La stringa è vuota"
+        }
+        //confrontare 3 numeri
+        let e = 1;
+        let f = 12;
+        let g = 15;
+        let piuTesto = document.createElement("p");
+        document.body.appendChild(piuTesto);
+        if((e > 0 || f < 20) && (g >= 10 && g <= 20)){
+            piuTesto.textContent = "Esercizio corretto"
+        }else{
+            piuTesto.textContent = "Errore"
+        }    
+    </script>
+</body>
+</html>

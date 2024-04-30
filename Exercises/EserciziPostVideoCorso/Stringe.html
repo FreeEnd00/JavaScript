@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stringhe JS</title>
+</head>
+<body>
+    <script>
+        //stampare lunghezza stringa
+        let testo1 = document.createElement("p");
+        document.body.appendChild(testo1);
+        let stringa1 = "TEDESCHIBASTARDI"
+        testo1.textContent = "La stringa '" + stringa1 + "' " + "è lunga " + stringa1.length + " caratteri";
+        //stampare una stringa sommandone due tra loro
+        let testo2 = document.createElement("p");
+        document.body.appendChild(testo2);
+        let stringa2 = "Ciao Mi Lady ";
+        let stringa3 = "grazie d'esistere";
+        testo2.textContent = stringa2 + stringa3;
+        //conversione stringa numero
+        let stringa4 = "30";
+        let numero = parseInt(stringa4);
+        let testo3 = document.createElement("p");
+        document.body.appendChild(testo3);
+        testo3.textContent = "Questo è una stringa diventata numero on il metodo parseInt():  " + numero;
+        //slice()
+        let stringa5 = "Oggi è una bellissima giornata"
+        let stringaTagliata = stringa5.slice(11,22);
+        let testo4 = document.createElement("p");
+        document.body.appendChild(testo4);
+        testo4.textContent = stringa5 + " : " + stringaTagliata
+        //conversione testo maiuscolo toUpperCase()
+        let testo5 = document.createElement("p");
+        document.body.appendChild(testo5);
+        let testoMaiuscolo = stringa5.toUpperCase();
+        testo5.textContent = testoMaiuscolo;
+        //conversione testo minuscolo toLowerCase()
+        let testo6 = document.createElement("p");
+        document.body.appendChild(testo6);
+        let testoMinuscolo = testoMaiuscolo.toLowerCase();
+        testo6.textContent = testoMinuscolo;
+        //replace()
+        let testo7 = document.createElement("p");
+        document.body.appendChild(testo7);
+        let sottoStringaDaCercare = "Oggi è";
+        let sottoStringaDaCambiare = "Ieri era";
+        let stringaSostituita = stringa5.replace(sottoStringaDaCercare,sottoStringaDaCambiare);
+        testo7.textContent = "La vecchia stringa: '" + stringa5 + "' diventa: '" + stringaSostituita + "'";
+        //split()
+        let testo8 = document.createElement("p");
+        document.body.appendChild(testo8);
+        let stringa6 = "Salerno,è,una,merda,dio,porco";
+        let strArray = stringa6.split(",");
+        let cons = console.log(strArray);
+        testo8.textContent = stringa6 + " Diventa: " + "["+strArray+"]";
+        //trim() rimuove spazi finali e iniziali di una stringa
+        let triming = document.createElement("p");
+        document.body.appendChild(triming);
+        let diocan = "         !DIOCANE!         "
+        let trimed = diocan.trim();
+        triming.textContent = trimed;
+        console.log(diocan);
+        console.log(trimed);
+    </script>
+</body>
+</html>
