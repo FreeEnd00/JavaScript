@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays JS</title>
+</head>
+<body>
+    <script>
+        //somma di numeri in un array
+        const array = [10, 23, 20, 17, 25 ,37, 32, 55, 74, 18];
+        // let somma = 0
+        //  for(let numero of array){
+        //     somma += numero;
+        //  }
+        //  console.log("La somma dei numeri è " ,somma)
+         //trova il numero più grande
+         let contenitore = array[0];
+        //  let contatore = 0;
+        // do{
+        //     for(numero of array){
+        //         if(numero >= contenitore){
+        //             contenitore = numero;
+        //             contatore++;
+        //         }
+        //     }
+        // }while(contatore <= array.length)
+        // console.log("Il numero più grande è", contenitore)
+        for(let numero of array){
+            if(numero > contenitore){
+                contenitore = numero;
+            }
+        }
+        console.log("Il numero maggiore è ",contenitore)
+        let minimo = array[0]
+        //trava il valore più piccolo
+        for(let numero of array){
+            if (numero < minimo){
+                minimo = numero;
+            }
+        }
+        console.log("Il numero più piccolo è ", minimo)
+        //restituire array con soli numeri pari
+        const arrayPari = [];
+        for(let numero of array){
+            if(numero % 2 === 0 ){
+                arrayPari.push(numero);
+            }
+        }
+        console.log("Normalissimo Array numerico ",array)
+        console.log("Array con solo numeri pari ", arrayPari)
+        //unire due array insieme
+        const secondoArray = [11,21,32,43,54,65,76,87,98];
+        const concatenaArray = array.concat(secondoArray);
+        console.log("L'array concatenato è ", concatenaArray)
+        //crea array da due array con elementi doppi elimiando questi ultimi
+        
+    </script>
+</body>
+</html>
