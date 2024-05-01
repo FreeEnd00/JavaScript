@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classi JS</title>
+</head>
+<body>
+    <script>
+        //classe persona con metodo saluta
+        class Persona{
+            constructor(nome,secondoNome, cognome){
+                this.nome = nome;
+                this.secondoNome = secondoNome;
+                this.cognome = cognome;
+            }
+
+            saluta(){
+                console.log(`Ciao, sono ${this.nome} ${this.secondoNome} ${this.cognome}`);
+            }
+        }
+        const persona = new Persona("Thomas","Ernesto","Ginder");
+        persona.saluta();
+        //classe Automobile con metodo mostra dettagli
+        class Automobile{
+            constructor(marca,modello,anno){
+                this.marca = marca;
+                this.modello = modello;
+                this.anno = anno;
+            }
+
+            dettagli(){
+                console.log(`La mia macchina è una ${this.marca} ${this.modello} del ${this.anno}`);
+            }
+        }
+
+        const automobile = new Automobile("Honda","Civic",2004);
+        automobile.dettagli();
+        //classe Cerchio con metodo per calcolare l'area
+        class Cerchio{
+            constructor(raggio){
+                this.raggio = raggio;
+            }
+            area(){
+                console.log(`L'area di un cerchio con raggio ${this.raggio} è ${Math.floor(Math.PI * Math.pow(this.raggio, 2))}`);
+            }
+        }
+
+        const cerchio = new Cerchio(12);
+        cerchio.area();
+        //classe Libro con metodo per mostrare i dettagli
+        class Libro{
+            constructor(autore,editore,titolo,anno){
+                this.autore = autore;
+                this.editore = editore;
+                this.titolo = titolo;
+                this.anno = anno;
+            }
+            dettagli(){
+                console.log(`Titolo: ${this.titolo}, Autore: ${this.autore}, Editore: ${this.editore}, Anno: ${this.anno}`)
+            }
+        }
+
+        const libro = new Libro("Dante Alighieri","DaMi","La Divina Commedia",1321);
+        libro.dettagli();
+        //classe Studente con  array voti, creare metodo per aggiungere voti
+        class Studente{
+            constructor(nome,cognome,classe,voti){
+                this.nome = nome;
+                this.cognome = cognome;
+                this.classe = classe;
+                this.voti = [];
+            }
+            aggiungiVoto(voto){
+                 this.voti.push(voto);
+            }
+        }
+
+        const studente = new Studente("Thomas Ernesto","Ginder","4B");
+        studente.aggiungiVoto(8);
+        studente.aggiungiVoto(9);
+        studente.aggiungiVoto(6);
+        studente.aggiungiVoto(5);
+        studente.aggiungiVoto(10);
+        studente.aggiungiVoto(7);
+        studente.aggiungiVoto(8);
+        console.log(`Voti: ${studente.voti}`);
+        //classe Prodotto con metodo per applicare sconto al prodotto
+        class Prodotto{
+            constructor(nome,prezzo){
+                this.nome = nome;
+                this.prezzo = prezzo;
+            }
+            applicaSconto(sconto){
+                this.prezzo = this.prezzo - ((this.prezzo * sconto) / 100);
+            }
+        }
+        const prodotto = new Prodotto("Prosciutto Crudo",10.50);
+        console.log(`Prezzo originale: ${prodotto.prezzo}`)
+        prodotto.applicaSconto(10);
+        console.log(`Prezzo scontato: ${prodotto.prezzo}`)
+         //classe Punto con metodo per trovare la distanza dall'origine
+         class Punto {
+            constructor(x,y){
+                this.x = x;
+                this.y = y;
+            }
+            calcolaDistanza(){
+                const distanza = Math.sqrt(this.x * this.x + this.y * this.y);
+                return distanza;
+            }
+         }
+
+         const punto = new Punto(4,7);
+         const distanza = punto.calcolaDistanza();
+         console.log(`La distanza dal punto all'origine è: ${distanza}`);
+         // classe Rettangolo con metodo per calcolare l'area
+         class Rettangolo{
+            constructor(base,altezza){
+                this.base = base;
+                this.altezza = altezza;
+            }
+
+            calcolaArea(){
+                const area = this.base * this.altezza;
+                return area;
+            }
+         }
+         const rettangolo = new Rettangolo(5,10);
+         const area = rettangolo.calcolaArea();
+         console.log(`L'area di un rettangolo avente base ${rettangolo.base} e altezza ${rettangolo.altezza} è: ${area}`);
+         //classe Utente con metodo per creare indirizzo email
+         class Utente{
+            constructor(nome,cognome,anno){
+                this.nome = nome;
+                this.cognome = cognome;
+                this.anno = anno;
+            }
+
+            generaEmail(mail){
+                const anno = this.anno.toString().slice(2);
+                this.nome = this.nome.toLowerCase();
+                this.cognome = this.cognome.toLowerCase();
+                const email = this.nome +"."+ this.cognome + anno + mail;
+                return email;
+            }
+         }
+         const utente = new Utente("Thomas","Ginder",2000);
+         const email = utente.generaEmail("@gmail.com");
+         console.log(`La tua email è: ${email}`)
+         //classe Triangolo con metodo per trovare l'area
+         class Triangolo{
+            constructor(base,altezza){
+                this.base = base;
+                this.altezza = altezza;
+            }
+
+            calcolaAreaTriangolo(){
+                const area = (this.base * this.altezza) / 2;
+                return area;
+            }
+         }
+         const triangolo = new Triangolo(5,10);
+         const areaTriangolo = triangolo.calcolaAreaTriangolo();
+         console.log(`L'aera di un triangolo avente base ${triangolo.base} e altezza ${triangolo.altezza} è: ${areaTriangolo}`)
+
+    </script>
+</body>
+</html>
