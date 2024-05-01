@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oggetti JS</title>
+</head>
+<body>
+    <script>
+        //crea oggetto persona con  attributi nome e età
+        const persona = {
+            nome: "Carlotta",
+            eta: 22,
+        };
+        console.log(persona);
+        //stampa nome ed età dell'oggetto persona
+        console.log(`Nome: ${persona.nome}`);
+        console.log(`Età: ${persona.eta}`);
+        //cambia il valore di età
+        persona.eta = 23;
+        console.log("La nuova età: ",persona.eta);
+        //aggiungi nuova proprietà "sesso" all'oggetto persona
+        persona.sesso = "femmina"
+        console.log(`Sesso: ${persona.sesso}`);
+        //elimina proprietà "eta" 
+        delete persona.eta;
+        console.log("Persona senza proprietà eta",persona);
+        //stampa tutte le proprietà di persona
+        for(element in persona){
+            console.log(element,": ", persona[element])
+        }
+        //verifica la presenza della proprietà "sesso"
+        if("sesso"in persona){
+            console.log("La proprietà sesso è presente dentro l'oggetto persona")
+        }else{
+            console.log("La proprietà sesso non è presente nell'oggetto persona")
+        }
+        //crea copia di un oggetto
+        const personaCopia = Object.assign({},persona)
+        console.log("Questa è l'originale",persona);
+        console.log("Questa è la copia ",personaCopia)
+        //conta il numero di proprietà in un oggetto
+        const contaProprieta = Object.keys(persona).length;
+        console.log("Le proprietà presenti sono ",contaProprieta);
+        //crea oggetto con oggetto annidato
+        const libro = {
+            titolo: "La storia infinita",
+            autore: "Giggino Spigolino",
+            editore:{
+                nome: "Mondadori",
+                anno: 2024,
+            }
+        };
+        console.log("L'oggetto libro è ",libro)
+    </script>
+</body>
+</html>

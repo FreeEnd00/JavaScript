@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funzioni JS</title>
+</head>
+<body>
+    <script>
+        //area di un triangolo
+        function areaTriangolo(base,altezza){
+            return base * altezza;
+        }
+        const base = 5;
+        const altezza = 20;
+        const area = areaTriangolo(base,altezza);
+        console.log("L'area del triangolo con base ",base," altezza ",altezza," è: ",area);
+        //true se numero pari e viceversa
+        function pariOdispari(numero){
+            if(numero % 2 === 0){
+                console.log(`${numero} è pari`);
+            }else{
+                console.log(`${numero} è dispari`);
+            }
+        }
+        let numero = 50;
+        const verifica = pariOdispari(numero);
+        //concatenazione di due stringhe
+        function stringaConcatenata(stringa1,stringa2){
+            return stringa1 + stringa2;
+        }
+        stringa1 = "Sei il centro ";
+        stringa2 = "della mia Galassia";
+        const stringhe = stringaConcatenata(stringa1,stringa2);
+        console.log("Le stringhe unite formano: ",stringhe);
+        //fattoriale
+        function calcoloFattoriale(numero){
+            let fattoriale = 1
+            for(let i = 1; i <= numero; i ++){
+                fattoriale *= i;
+            }
+            return fattoriale;
+        }
+        const fattoriale = calcoloFattoriale(numero);
+        console.log("Il fattoriale di ",numero," è: ",fattoriale);
+        //numero casuale tra due numeri massimo e minimo
+        function generaNumeroCasuale(max,min){
+            return Math.floor(Math.random()*(max - min + 1) + min);
+        }
+        const minimo = 10;
+        const massimo = 100;
+        const numeroCauale = generaNumeroCasuale(massimo,minimo);
+        console.log("Il numero casuale tra ",minimo, " e ",massimo," è: ",numeroCauale);
+        //parola palindroma
+        function isParolaPalindroma(parola){
+            const parolaInvertita = parola.split("").reverse().join("");
+            return parolaInvertita === parola;
+        }
+        const parola = "radar";
+        const isPalindroma = isParolaPalindroma(parola);
+        console.log("La parola: ",parola," è palindroma?: ",isPalindroma);
+        //somma di tutti gli elementi di un array
+        function sommaArray(array){
+            let somma = 0;
+            for(let number of array){
+                somma += number;
+            }
+            return somma;
+        }
+        const array =[20,32,56,37,12]
+        const risultato = sommaArray(array);
+        console.log("La somma dei numeri dell'array ",array," è: ",risultato);
+        //trova valore massimo e minimo di un array
+        function massimoEminimo(array){
+            let massimo = Math.max(...array);
+            let minimo = Math.min(...array);
+            return {
+                massimo,
+                minimo,
+            }
+        }
+        const calcoloMinimoMassimo = massimoEminimo(array);
+        console.log("Prendendo in cosiderazione l'array di numeri ",array,calcoloMinimoMassimo);
+        //conteggio vocali di una stringa
+        function conteggioVocali(stringa){
+            const vocali = ["a","e","i","o","u"];
+            let conteggio = 0;
+            for(let lettera of stringa.toLowerCase()){
+                if(vocali.includes(lettera)){
+                    conteggio++;
+                }
+            }
+            return conteggio;
+        }
+        const stringa = "Ciao Carlotta sei magnifica";
+        let numeroVocali = conteggioVocali(stringa);
+        console.log("Il numero di vocali all'interno di ",stringa," è di: ",numeroVocali);
+        //media di numeri di un array
+        function calcolareMedia(numeri){
+            const somma = numeri.reduce((acc,curr) => acc + curr, 0);
+            const media = somma/numeri.length;
+            return media;
+        }
+        const numeri = [1,7,4,5,3,8];
+        const mediaNumeri = calcolareMedia(numeri);
+        console.log("La media dei numeri ",numeri," è: ",mediaNumeri)
+    </script>
+</body>
+</html>
