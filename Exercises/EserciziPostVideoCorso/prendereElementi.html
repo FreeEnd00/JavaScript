@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prendere elementi in JS</title>
+</head>
+<body>
+    <p class="paragrafo" id="element" data-attribute="salve">Salve salvino vicino!</p>
+    <p id="query"></p>
+    <ul>
+        <li class="item">uno</li>
+        <li class="item">due</li>
+        <li class="item">tre</li>
+        <li class="item">quattro</li>
+        <li class="item">cinque</li>
+    </ul>
+    <input type="text" id="input" placeholder="We">
+    <select name="" id="select">
+        <option value = "opzione1">albero</options>
+        <option value = "opzione2">aceto</options>
+        <option value = "opzione3">aspirapolvere</options>
+    </select>
+    <input type="checkbox" name="checkbox" id="box">Uragano
+    <input type="radio" name="radio" id="radio" value="Pistocchu">Pistocchu
+    <input type="radio" name="radio" id="radio" value="Su Gallu">Su Gallu
+    <input type="radio" name="radio" id="radio" value="Carasau">Carasau
+    <div id="padre">
+        <p id="figli" data-attribute = "value">primo figlio</p>
+        <p id="figli" data-attribute = "value">secondo figlio</p>
+        <p id="figli">terzo figlio</p>
+        <p id="figli">quarto figlio</p>
+    </div>
+    <ul id="listaPadre">
+        <li class="figlioLista classeAggiuntiva">1</li>
+        <li class="figlioLista classeAggiuntiva">2</li>
+        <li class="figlioLista">3</li>
+        <li class="figlioLista">4</li>
+        <li class="figlioLista">5</li>
+    </ul>
+    <p>HelloWorld</p>
+    <p>HelloWorld</p>
+    <p>HelloWorld</p>
+    <p>HelloWorld</p>
+    <script>
+        //prendere elemento per ID
+        let par = document.getElementById("element");
+        console.log(par.textContent);
+        //prendere elemento per classe
+        let testo = document.getElementsByClassName("paragrafo");
+        for(let i = 0; i < testo.length; i++){
+            testo[i].style.color = "blue";
+        }
+        //ottieni elemento per tag e aggiungi classe
+        const classeAggiuntiva = document.getElementsByTagName("p");
+        for(let i = 0; i < classeAggiuntiva.length; i ++){
+            classeAggiuntiva[i].classList.add("nuovaClasse");
+        }
+        //ottieni elemento per query selector e cambia il testo
+        const query = document.querySelector("#query");
+        query.textContent = "Porcellana italo-svedese";
+        //ottieni tutti gli elementi con lo stesso selettore css e nascondili
+        const all = document.querySelectorAll(".item");
+        all.forEach((elemento) => {
+            elemento.style.display = "none";
+        });
+        //ottieni valore input
+        const input = document.getElementById("input");
+        console.log(input.value);
+        //ottieni valore elemento select
+        const select = document.getElementById("select");
+        console.log(select.value);
+        //ottieni valore di un checkbox per verificare se è stato selezionato o meno
+        const checkbox = document.getElementById("box");
+        console.log(box.checked);
+        //ottieni valore selezionato di un elemento radio
+        const radios = document.getElementsByName("radio");
+        let valoreSelezionato;
+        radios.forEach((radio) => {
+            if(radio.checked){
+                valoreSelezionato = radio.value;
+            }
+        });
+        console.log(valoreSelezionato);
+        //Ottenere tutti gli elementi figli di un elemento padre e aggiungere loro una classe
+        const padre = document.getElementById("padre");
+        const figli = padre.children;
+        for(let i = 0;i < figli.length; i ++){
+            figli[i].classList.add("figlio");
+        }
+        //Ottenere il primo elemento figlio di un elemento padre e modificare il suo testo
+        const primoFiglio = padre.firstElementChild;
+        primoFiglio.textContent += " Asparago";
+        //Ottenere l'elemento successivo di un elemento e nasconderlo
+        const nascosto = primoFiglio.nextElementSibling;
+        nascosto.style.display = "none";
+        //Ottenere l'elemento precedente di un elemento e rimuovergli una classe
+        const precedente = nascosto.previousElementSibling;
+        precedente.classList.remove("figlio");
+        //Ottenere tutti gli elementi che hanno un determinato attributo e aggiungere loro una classe
+        const elementiConAttributo = document.querySelectorAll("[data-attribute]");
+        elementiConAttributo.forEach((elemento)=>{
+            elemento.classList.add("ClasseCustom");
+        });
+        //Ottenere tutti gli elementi che corrispondono a un selettore CSS all'interno di un altro elemento e modificarne il contenuto
+        const elementoPadre = document.getElementById("listaPadre");
+        const elementoFiglio = elementoPadre.querySelectorAll(".figlioLista");
+        elementoFiglio.forEach((elemento)=>{
+            elemento.textContent += " Nuovo Testo";
+        });
+        //Ottenere tutti gli elementi che hanno una classe specifica all'interno di un elemento e nasconderli
+        elementiConClasse = elementoPadre.querySelectorAll(".classeAggiuntiva");
+        elementiConClasse.forEach((elemento)=>{
+            elemento.style.display = "none";
+        });
+        //Ottenere tutti gli elementi che contengono un determinato testo e aggiungere loro una classe
+        const elementiConTesto = document.querySelectorAll("p");
+        const mioTesto = "HelloWorld";
+        elementiConTesto.forEach((elemento) => {
+            if(elemento.textContent.includes(mioTesto)){
+                elemento.classList.add("mioTesto")
+            }
+        });
+        //Ottenere il valore di un attributo di un elemento
+        const elemento = document.getElementById("element");
+        const attributo = elemento.getAttribute("class");
+        console.log(attributo)
+
+
+
+
+    </script>
+</body>
+</html>

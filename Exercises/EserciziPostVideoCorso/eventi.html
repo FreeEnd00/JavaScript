@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventi JS</title>
+</head>
+<body style="height: 1000rem;">
+    <button style="margin-bottom: 1rem;" id="btn">Click Me!</button>
+    <form id="form" style="display: flex; flex-direction: columns;">
+        <label></label>
+        <input id="inputText" type="text">
+        <input type="range" name="" id="range">
+        <input type="checkbox" name="" id="box">
+        <button type="submit">Submit</button>
+    </form>
+    <select name="" id="select" style="margin-top: 1rem;">
+        <option value="Sasso" id="option">Sasso</option>
+        <option value="Carta" id="option">Carta</option>
+        <option value="Forbice" id="option">Forbice</option>
+    </select>
+    <img src="kiruEgioiotti.webp" alt="kiruEgioiotti" id="img">
+    <script>
+        //event listener di un bottone con messaggio in console
+        const btn = document.getElementById("btn");
+        btn.addEventListener("click", function (){
+            console.log("Il pulsante è stato premuto!")
+        });
+        //Aggiungere un event listener al submit di un modulo
+        const submit = document.getElementById("form");
+        submit.addEventListener("submit", function (event){
+            event.preventDefault();
+            console.log("Il modulo è stato inviato!");
+        });
+        //Aggiungere un event listener al cambio di un input di testo
+        const inputText = document.getElementById("inputText");
+        inputText.addEventListener("input", function (){
+            console.log("Il valore dell'input è stato cambiato!", inputText.value);
+        });
+        //Aggiungere un event listener al caricamento completo della pagina
+        window.addEventListener("load", function (){
+            console.log("La pagina è stata ricaricata");
+        });
+        //aggiungere un event listener al passaggio del mouse su un elemento
+        btn.addEventListener("mouseover", function (){
+            console.log("Il mouse è appena passato sopra il bottone");
+        });
+        //aggiungere un event listener al focus di un input
+        inputText.addEventListener("focus", function (){
+            console.log("Hai appena fatto il focus sull'input!")
+        })
+        //aggiungere un event listener al cambio di opzione ad un select
+        const select = document.getElementById("select");
+        select.addEventListener("change", function (){
+            console.log("Opzione cambiata:", select.value)
+        });
+        //aggiungere un event listener alla pressione di un tasto della tastiera
+        document.addEventListener("keydown", function (event){
+            console.log("Hai appena premuto:",event.key);
+        });
+        //aggiungere un event listener allo scroll della pagina
+        window.addEventListener("scroll", function(){
+            console.log("Stai scrollando la pagina!")
+        })
+        //aggiungere un event listener al doppio click di un elemento
+        btn.addEventListener("dblclick", function(){
+            console.log("Hai appena fatto doppio click sul bottone!");
+        });
+        //aggiungere un event listener al cambio di valore di un input range
+        const range = document.getElementById("range");
+        range.addEventListener("input", function(){
+            console.log("Range a:", range.value);
+        });
+        //aggiungere un event listener al passaggio fuori del mouse da un elemento
+        form.addEventListener("mouseout", function(){
+            console.log("Sei appena uscito dal form!");
+        });
+        //aggiungere un event listener al click destro su un elemento
+        btn.addEventListener("contextmenu",function(){
+            console.log("Hai appena rightclickatto il bottone!")
+        });
+        //aggiungere un event listener al cambio di dimensione della pagina
+        window.addEventListener("resize", function(){
+            console.log("Stai modificando la dimensione della pagina!")
+        });
+        //aggiungere un event listener al caricamento di un'immagine
+        const img = document.getElementById("img");
+        img.addEventListener("load",function(){
+            console.log("Immagine caricata con successo!");
+        });
+        //aggiungere un event listener ad una combinazione di tasti
+        document.addEventListener("keydown", function(event){
+            if(event.key === "Control" && event.shiftKey){
+                console.log("Hai premuto Control + Shift!");
+            };
+        });
+        //Aggiungere un event listener su un tasto premuto in un input
+        inputText.addEventListener("keydown", function (event){
+            if(event.key === "Enter"){
+                console.log("Hai premuto Enter sull'input!")
+            }
+        });
+        //aggiungere un event listener al cambio di valore in un input checkbox
+        const checkbox = document.getElementById("box");
+        checkbox.addEventListener("change",function(){
+            if(checkbox.checked === true){
+                console.log("La casella è sta selezionata");
+            }else{
+                console.log("La casella è stata deselezionata");
+            }
+        })
+    </script>
+</body>
+</html>

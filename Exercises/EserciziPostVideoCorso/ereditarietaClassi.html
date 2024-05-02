@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ereditarietà Classi JS</title>
+</head>
+<body>
+    <script>
+        //creare classe Veicolo con marca e anno di produzione
+        //creare poi classe Automobile che erediti la classe Veicolo aggiungendo la proprietà modello
+        // class Veicolo{
+        //     constructor(marca,anno){
+        //         this.marca = marca;
+        //         this.anno = anno;
+        //     }
+        // }
+        // class Automobile extends Veicolo{
+        //     constructor(marca,anno,modello){
+        //         super(marca,anno);
+        //         this.modello = modello;
+        //     }
+        // }
+        // const automobile = new Automobile("Honda",2004,"Civic");
+        // console.log(`Marca: ${automobile.marca}, Modello: ${automobile.modello}, Anno di produzione: ${automobile.anno}`);
+        //crea classe Animale con nome e metodo verso
+        //crea classe Cane che erediti da Animale aggiungendo la proprietà razza
+        class Animale{
+            constructor(nome){
+                this.nome = nome;
+            }
+
+            verso(){
+                return "Sconosciuto";
+            }
+        }
+
+        class Cane extends Animale{
+            constructor(nome,razza){
+                super(nome);
+                this.razza = razza;
+            }
+
+            verso(){
+                return "Woff Woff Bau Bau"
+            }
+        }
+        const cane = new Cane("Rex","Pastore Tedesco");
+        const versoCane = cane.verso();
+        console.log(`Il tuo cane si chiama ${cane.nome}, la sua razza è ${cane.razza} e il suo verso è: ${versoCane}`);
+        //creare classe Persona con nome e cognome poi creare classe Studente che erediti da Persona e aggiungere proprietà CorsoDIStudi
+        // class Persona{
+        //     constructor(nome,cognome){
+        //         this.nome = nome;
+        //         this.cognome = cognome;
+        //     }
+        // }
+        // class Studente extends Persona{
+        //     constructor(nome,cognome,corsoDiStudi){
+        //         super(nome,cognome);
+        //         this.corsoDiStudi = corsoDiStudi;
+        //     }
+        // }
+        // const studente = new Studente("Francesco","Birillo","Fisica Quantistica");
+        // console.log(`Ciao, mi chiamo ${studente.nome} ${studente.cognome} e studio ${studente.corsoDiStudi}`);
+        //creare classe Forma con metodo calcolaArea poi creare classe Rettangolo che erediti da Forma, aggiungendo le proprietà base e altezza e calcola l'area
+        class Forma{
+            calcolaArea(){
+                return 0;
+            }
+        }
+        class Rettangolo extends Forma{
+            constructor(base,altezza){
+                super();
+                this.base = base;
+                this.altezza = altezza;
+            }
+
+            calcolaArea(){
+                const area = this.base * this.altezza;
+                return area;
+            }
+        }
+        const rettangolo = new Rettangolo(6,8);
+        const area = rettangolo.calcolaArea();
+        console.log(`L'area di un rettangolo avente base ${rettangolo.base} e altezza ${rettangolo.altezza} è: ${area}`);
+        //creare classe veicolo con metodo acellera poi classe Automobile che si estenda da Veicolo e aggiunga il metodo clacson
+        // class Veicolo{
+        //     accelera(){
+        //         return "Il veicolo sta accelerando..."
+        //     }
+        // }
+        // class Automobile extends Veicolo{
+        //     accelera(){
+        //         return "L'automobile sta acellerando...";
+        //     }
+        //     suonaClacson(){
+        //         return "BEEP BEEEEP!";
+        //     }
+        // }
+        // const automobile = new Automobile;
+        // const accelera = automobile.accelera();
+        // const clacson = automobile.suonaClacson();
+        // console.log(`${accelera} e poi suona il clacson ${clacson}`);
+        //classe Gatto che erediti dalla classe Animale e sovrascriva il metodo verso
+        class Gatto extends Animale{
+            constructor(nome,razza){
+                super(nome);
+                this.razza = razza;
+            }
+            verso(){
+                return "Miaoooo";
+            }
+        }
+        const gatto = new Gatto("Giggio","Siamese");
+        const versoGatto = gatto.verso();
+        console.log(`Il gatto si chiama ${gatto.nome} la sua razza è ${gatto.razza} e il suo verso è: ${versoGatto}`);
+        //crea classe Studente che erediti da una classe Persona con metodo saluta e aggiungere corso di studio
+        class Persona{
+            constructor(nome,cognome){
+                this.nome = nome;
+                this.cognome = cognome;
+            }
+            saluta(){
+                return `Ciao sono ${this.nome} ${this.cognome}`;
+            }
+        }
+        class Studente extends Persona{
+            constructor(nome,cognome,corsoDiStudi){
+                super(nome,cognome);
+                this.corsoDiStudi = corsoDiStudi;
+            }
+            saluta(){
+                return `Ciao sono ${this.nome} ${this.cognome} e studio ${this.corsoDiStudi}`;
+            }
+        }
+        const studente = new Studente("Fabbrizio","Mighelini","Informatica");
+        const saluto = studente.saluta();
+        console.log(saluto);
+        //creare classe Veicolo con metodo avviaMotore poi creare classe Motocicletta che erediti da Veicolo e aggiunga il metodo giuda
+        class Veicolo{
+            constructor(motore){
+                this.motore = motore;
+            }
+            avviaMotore(){
+                return `Il motore ${this.motore} è stato avviato!`;
+            }
+        }
+        class Motocicletta extends Veicolo{
+            constructor(motore){
+                super(motore);
+            }
+            guida(){
+                return "La motocicletta sta venendo guidata!"
+            }
+        }
+        const motocicletta = new Motocicletta("V8");
+        const avviaMotore = motocicletta.avviaMotore();
+        const guida = motocicletta.guida();
+        console.log(`${avviaMotore} e ${guida}`);
+        // crea classe Cerchio che erediti da Forma e calcoli l'area
+        class Cerchio extends Forma{
+            constructor(raggio){
+                super();
+                this.raggio = raggio;
+            }
+            calcolaArea(){
+                const area = Math.PI * Math.pow(this.raggio,2);
+                console.log(`L'area di un cerchio avente raggio ${this.raggio} è di ${area.toFixed(2)}`)
+            }
+        }
+        const cerchio = new Cerchio(4);
+        const areaCerchio = cerchio.calcolaArea();
+    </script>
+</body>
+</html>
