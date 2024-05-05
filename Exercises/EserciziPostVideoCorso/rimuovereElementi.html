@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rimuovere Elementi JS</title>
+</head>
+<body>
+    <h1 id="titolo">Titolo</h1>
+    <ul id="lista">
+        <li id="figlioDaRimuovere">caramella</li>
+        <li id="figlio">gomma</li>
+        <li id="figlio">Lollipop</li>
+        <li id="figlio">candito</li>
+    </ul>
+    <div class="elementoPadre">ElementoPadre con Figli cancellati
+        <p class="elementoFiglio">contenuto</p>
+        <p class="elementoFiglio">contenuto</p>
+        <p class="elementoFiglio">contenuto</p>
+        <p class="elementoFiglio">contenuto</p>
+        <p class="elementoFiglio">contenuto</p>
+    </div>
+    <img src="https://picsum.photos/200/300" alt="" id="rimuoviClick">
+    <img src="https://picsum.photos/200/300" alt="" id="rimuoviOver">
+    <p class="contenutoDaEliminare">pillola</p>
+    <p class="contenutoDaEliminare">partita</p>
+    <p class="contenutoDaEliminare">portata</p>
+    <p class="contenutoDaEliminare">persona</p>
+    <p class="contenutoDaEliminare">perduto</p>
+    <p class="contenutoDaEliminare">pauroso</p>
+    <p>papiro</p>
+
+    <p id="rimuoviTempo">Questo elemento si distruggerà tra 5 secondi </p>
+
+    <p id="scrollRimuovi">Se scrolli la pagina sparisco</p>
+
+    <button id="elimina">Usami per eliminare</button>
+    <p id="eventoElimina">Questo testo verrà eliminato da secondo evento</p>
+
+
+    <button id="classiElimina">Elimina oggetti con la stessa classe</button>
+    <ul id="listaClasse">
+        <li class="classeDaEliminare">nero</li>
+        <li class="classeDaEliminare">rosso</li>
+        <li class="classeDaEliminare">blu</li>
+        <li class="classeDaEliminare">giallo</li>
+        <li class="classeDaEliminare">verde</li>
+        <li class="classeDaEliminare">viola</li>
+        <li>arancione</li>
+        <li>marrone</li>
+    </ul>
+    <script>
+        //rimuovere elemento tramite ID
+        const titolo = document.getElementById("titolo");
+        titolo.remove();
+        //rimuovere elemento figlio da elemento padre
+        const elementoPadre = document.getElementById("lista");
+        const elementoFiglio = elementoPadre.querySelector("#figlioDaRimuovere");
+        elementoPadre.removeChild(elementoFiglio);
+        // rimuovere tutti gli elementi figli da un elemento padre
+        const padre = document.querySelector(".elementoPadre");
+        const figli = padre.querySelectorAll(".elementoFiglio");
+        for(let i = 0;i < figli.length; i++){
+            figli[i].remove();
+        }
+    //     while(padre.firstChild){
+    //         padre.firstChild.remove();
+    //     }
+    //rimuovere elemento tramite click del mouse
+    const rimuoviClick = document.getElementById("rimuoviClick");
+    rimuoviClick.addEventListener("click", function(){
+        rimuoviClick.remove();
+    });
+    //rimuovere elemento passandoci col mouse sopra
+    rimuoviOver = document.getElementById("rimuoviOver");
+    rimuoviOver.addEventListener("mouseover", function(){
+        rimuoviOver.remove();
+    });
+    //rimuovere elementi tramite il selettore CSS
+    const rimuoviElementi = document.querySelectorAll(".contenutoDaEliminare");
+    rimuoviElementi.forEach(function(elemento){
+        elemento.remove();
+    });
+    //elimina elemento dopo un intervallo di tempo
+    const rimuoviTempo = document.getElementById("rimuoviTempo");
+    setTimeout(() => {
+            rimuoviTempo.remove();
+    }, 5000);
+    //rimuovere elemento scorrendo la pagina
+    const pagina = document.body;
+    pagina.style.height = "1000px";
+    const scrollRimuovi = document.getElementById("scrollRimuovi");
+    window.addEventListener("scroll", function(){
+        scrollRimuovi.remove();
+    });
+    //eliminare elemento dopo un determinato evento
+    const pulsante = document.getElementById("elimina");
+    pulsante.addEventListener("click", function(){
+        const eventoElimina = document.getElementById("eventoElimina");
+        eventoElimina.remove();
+    });
+    //rimuovi diversi elementi appatenenti alla stessa classe tramite pulsante
+
+    const pulsanteEliminaClasse = document.getElementById("classiElimina");
+    pulsanteEliminaClasse.addEventListener("click", function(){
+        const lista = document.getElementById("listaClasse");
+        const classeDaEliminare = lista.querySelectorAll(".classeDaEliminare");
+        classeDaEliminare.forEach(function(elemento){
+            elemento.remove();
+        });
+    })
+
+    </script>
+</body>
+</html>

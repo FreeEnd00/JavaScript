@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creare Elementi su JS</title>
+</head>
+<body>
+    <script>
+        //creare un div sul body
+        const div = document.createElement("div");
+        document.body.appendChild(div);   
+        // Creare un nuovo elemento `p`, aggiungere del testo al suo interno e aggiungerlo a un elemento padre specifico
+        const paragrafo = document.createElement("p");
+        paragrafo.textContent = "Titolo";
+        div.appendChild(paragrafo);
+        //creare un elemento img e settare attributi scr e alt
+        const img = document.createElement("img");
+        img.src = "https://picsum.photos/50/50";
+        img.alt = "Descrizione Immagine";
+        document.body.appendChild(img);
+        //creare elemento <ul> e aggiungere elementi <li> ad esso
+        const ul = document.createElement("ul");
+        document.body.appendChild(ul);
+        for(i = 1; i < 7; i ++){
+            let li = document.createElement("li");
+            ul.appendChild(li);
+            li.textContent= "Parola " + i;
+        }
+    </script>
+    
+</body>
+</html>

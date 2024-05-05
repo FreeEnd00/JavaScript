@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifiche stile Js</title>
+</head>
+<body>
+
+    <h1 id="titolo">Modifiche stile su JS</h1>
+
+    <img src="https://picsum.photos/150/150" alt="" id="img">
+    <img src="https://picsum.photos/50/50" alt="" id="img1">
+
+    <p id="paragrafo">Parola</p>
+
+    <p class="sfondoClasse">chilo</p>
+    <p class="sfondoClasse">crudo</p>
+    <p class="sfondoClasse">corto</p>
+    <p class="sfondoClasse">cesta</p>
+    <p class="sfondoClasse">curva</p>
+
+    <img src="https://picsum.photos/50/50" alt="" class="classeImmagine">
+    <img src="https://picsum.photos/50/50" alt="" class="classeImmagine">
+    <img src="https://picsum.photos/50/50" alt="" class="classeImmagine">
+    <img src="https://picsum.photos/50/50" alt="" class="classeImmagine">
+    <img src="https://picsum.photos/50/50" alt="" class="classeImmagine">
+    
+    <script>
+        //cambia colore dello sfondo di un oggetto
+        const backgroundColor = document.getElementById("titolo");
+        // backgroundColor.style.backgroundColor = "blue";
+        document.body.style.backgroundColor = "lightBlue";
+        //cambia colore testo di un elemento
+        titolo.style.color = "blue";
+        //cambia larghezza di un elemento
+        const immagine = document.getElementById("img");
+        immagine.style.width = "160px";
+        //cambia altezza di un elemento
+        immagine.style.height = "170px";
+        //cambia dimensione font di un elemento
+        titolo.style.fontSize = "80px";
+        //cambia visibilita oggetto
+        const imgInvisibile = document.getElementById("img1");
+        imgInvisibile.style.visibility = "hidden";
+        //cambia posizione di un elemento
+        // imgInvisibile.style.position = "fixed";
+        // document.body.style.height = "1000px";
+
+        //cambia bordo di un elemento
+        immagine.style.border = "solid 3px"
+        //cambia opacità di un oggetto
+        immagine.style.opacity = "0.7";
+        //cambia padding di un oggetto;
+        const paragrafo = document.getElementById("paragrafo");
+        paragrafo.style.backgroundColor = "lightGreen";
+        paragrafo.style.display = "inline";
+        paragrafo.style.padding = "10px";
+        //cambia (colore sfondo, del testo e padding) di tutti gli elementi con una determinata classe
+        const sfondoClasse = document.querySelectorAll(".sfondoClasse");
+        sfondoClasse.forEach(function(elemento){
+            elemento.style.backgroundColor = "pink";
+            elemento.style.display = "inline";
+            elemento.style.color = "red";
+            elemento.style.padding = "20px";
+        });
+        //cambiare (larghezza, altezza e bordo) di un gruppo di elementi con stessa classe
+        const classeImmagine = document.querySelectorAll(".classeImmagine");
+        classeImmagine.forEach(function(elemento){
+            elemento.style.width = "70px";
+            elemento.style.height = "80px";
+            elemento.style.border = "solid 2px";
+        });
+        //cambia font size di tutti gli elementi del tag specifico
+        const tuttiParag = document.getElementsByTagName("p");
+        for(i = 0; i < tuttiParag.length; i ++){
+            tuttiParag[i].style.fontSize = "40px"
+        }
+    </script>
+</body>
+</html>
