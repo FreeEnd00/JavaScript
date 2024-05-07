@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Interval Js</title>
+</head>
+<body>
+    <p id="frase">Le stelle sono troppe!</p>
+    <script>
+        //intervallo ogni secondo
+        // setInterval(function(){
+        //     console.log(Math.round(Math.random()));
+        // },1000);    
+        //Creare un timer che conta fino a 10 utilizzando setInterval
+        // let contatore = 1;
+
+        // const intervallo = setInterval(function(){
+        //     console.log(contatore);
+        //     if(contatore === 10){
+        //         clearInterval(intervallo);
+        //     }
+        //     contatore++;
+        // },1000);
+        //cambia colore ad un elemento ad ogni intervallo
+        const frase = document.getElementById("frase");
+        const intervalloColore = setInterval(function(){
+            frase.style.color = frase.style.color === "red" ? "blue": "red";
+        },2500);
+        //simulare countdown da 10 a 0
+        // let contatoreCD = 10;
+        // const countdown = setInterval(function(){ 
+        //     console.log(contatoreCD);
+        //     if(contatoreCD > 0){
+        //         contatoreCD--;
+        //     }else{
+        //         clearInterval(countdown);
+        //         console.log("BOOM!");
+        //     }
+        // },1000);
+        //simula una presentazione che cambia slide
+        const slides = ["Slide Acqua","Slide Terra","Slide Fuoco","Slide Aria"];
+        let indice = 0;
+        function cambiaSlide(){
+            console.log(slides[indice]);
+            indice++;
+            if (indice === slides.length){
+                indice = 0;
+            }
+        }
+        setInterval(cambiaSlide,3000);
+
+    </script>
+</body>
+</html>

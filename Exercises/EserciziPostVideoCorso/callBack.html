@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Back JS</title>
+</head>
+<body>
+    <script>
+        //definire funzione che accetta un callback e lo richiami
+        // function eseguiCallBack(callback){
+        //     callback();
+        // }
+        // function mioCallBack(){
+        //     console.log("Eseguo il callback")
+        // }
+        // eseguiCallBack(mioCallBack);
+         //Definire una funzione che accetta un valore e un callback, e richiama il callback passando il valore come argomento
+        //  function utilizzaCallBack(valore,callback){
+        //         callback(valore);
+        //     };
+        //     function mioCallBack(valore){
+        //         console.log("Valore ricevuto: ", valore);
+        //     }
+        //     utilizzaCallBack(45,mioCallBack);
+            //Simulare una chiamata asincrona utilizzando un setTimeout e un callback
+            // function chiamataAsincrona(callback){
+            //     setTimeout(function (){
+            //         callback("Risposta alla chiamata asincrona");
+            //     },2000);
+            // };
+            // function mioCallBack(risposta){
+            //     console.log("Risposta ricevuta: ",risposta);
+            // };
+
+            // chiamataAsincrona(mioCallBack);
+            //Definire una funzione che accetta un array e un callback, e richiama il callback per ogni elemento dell'array
+            const array = ["Pasta","Pizza","Pane","Patate"];
+            function elaboraArray(array, callback){
+                for(let i = 0; i < array.length; i++){
+                    callback(array[i]);
+                };
+            };
+            function mioCallBack(elemento){
+                console.log("Elemento: ",elemento);
+            };
+          
+            elaboraArray(array,mioCallBack);
+            //utilizza un callback per ordinare un array di oggetti
+            const persone = [
+                {nome:"Asya", eta:23, anno:2001},
+                {nome:"Valentino", eta:24, anno:2000},
+                {nome:"CriCri", eta:17, anno:2007},
+                {nome:"Marta", eta:20, anno:2004},
+                {nome:"Kekko", eta:23, anno:2000},
+            ];
+            function confrontaEta(a,b){
+                return a.eta - b.eta;
+            }
+            persone.sort(confrontaEta);
+            console.log(persone);
+            //filtra numeri pari
+            // const numeri = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+
+            // function trovaPari(numero){
+            //     return numero % 2 === 0;
+            // };
+            // const numeriPari = numeri.filter(trovaPari);
+            // console.log(numeriPari);
+            // //calcola la somma di un array
+            // const arrayNumerico = [10,3,2,13,46,32];
+            // function sommaArray(total,numero){
+            //     return total + numero;
+            // }
+            // const somma = numeri.reduce(sommaArray, 0);
+            // const somma2 = numeri.reduce(sommaArray, 1);
+
+            // console.log("La somma dei numeri dell'array è: ",somma);
+            // console.log("La somma dei numeri dell'array è: ",somma2);
+            //mappa elementi di un array a nuovi valori
+            const numeri = [1,2,3,4,5,6,7,8,9,10];
+            function triplica(numero){
+                return numero * 3;
+            }
+            const numeriTriplicati = numeri.map(triplica);
+            console.log(numeriTriplicati);
+            //utilizza un callback per eseguire un azione su un singolo carattere di una stringa
+            const stringa = "Giggino il pesciolino";
+            function stampaCarattere(carattere){
+                console.log(carattere);
+            }
+            Array.from(stringa).forEach(stampaCarattere);
+            //Utilizzare un callback per simulare la gestione degli errori in una finta chiamata asincrona
+            function eseguiChiamata(callBackSuccesso,callBackErrore){
+                const esito = Math.random() < 0.5;
+                if(esito){
+                    callBackSuccesso("Chiamata riuscita!");
+                }else{
+                    callBackErrore("Errore durante la chiamata!");
+                }
+            };
+            function callBackSuccesso(risposta){
+                console.log("Successo: ",risposta);
+            };
+            function callBackErrore(risposta){
+                console.log("Errore: ",risposta);
+            };
+            eseguiChiamata(callBackSuccesso,callBackErrore);
+    </script>
+</body>
+</html>

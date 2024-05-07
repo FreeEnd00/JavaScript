@@ -6,6 +6,11 @@
     <title>Creare Elementi su JS</title>
 </head>
 <body>
+    <form action="" id="modulo">
+        <label for="">Nome:</label>
+        <input type="text">
+        <label for="">Cognome:</label>
+    </form>
     <script>
         //creare un div sul body
         const div = document.createElement("div");
@@ -26,7 +31,59 @@
             let li = document.createElement("li");
             ul.appendChild(li);
             li.textContent= "Parola " + i;
-        }
+        };
+        //creare elemento <a> e specificare attributo href
+        const a = document.createElement("a");
+        a.href = "https://www.youtube.com";
+        a.textContent = "YouTube";
+        document.body.appendChild(a);
+        //creare elemento <input> di tipo testo e aggiungerlo ad un form
+        const inputCognome = document.createElement("input");
+        inputCognome.type = "text";
+        const modulo = document.getElementById("modulo");
+        modulo.appendChild(inputCognome);
+        //creare elemento <button> e impostargli un event listener per il click
+        const button = document.createElement("button");
+        button.textContent = "Click me!";
+        button.addEventListener("click",function(){
+            console.log("Il bottone è stato generato con JS");
+        });
+        document.body.appendChild(button);
+        //creare elemento <table> con righe <tr> e colonne <td>
+        const table = document.createElement("table");
+        document.body.appendChild(table);
+        for(let i = 0; i < 3; i ++){
+            let td = document.createElement("td");
+            table.appendChild(td);
+            td.textContent = "sostantivo" + i;
+            td.style.border = "Solid 1px black";
+            td.style.padding = "5px";
+            for(let f = 0; f < 3; f ++){
+                let tr = document.createElement("tr");
+                td.appendChild(tr);
+                tr.textContent = "oggetto" + f;
+                tr.style.border = "Solid 1px black";
+
+            }
+        };
+        //creare elemento <select> e aggiungere elemento <option>
+            const select = document.createElement("select");
+            document.body.appendChild(select);
+            // for(let i = 1; i < 4; i++){
+            //     let option = document.createElement("option");
+            //     option.textContent = "Option" +" "+ i;
+            //     select.appendChild(option); 
+            // };
+            const opzioni = ["Carne","Pesce","Verdura","Frutta","Legumi"];
+            opzioni.forEach(function(opzione){
+                const nuovaOpzione = document.createElement("option");
+                nuovaOpzione.textContent = opzione;
+                select.appendChild(nuovaOpzione);
+            });
+            //creare elemento <textarea> e impostarne il valore predefinito
+            const textArea = document.createElement("textarea");
+            textArea.value = "Testo predefinito";
+            document.body.appendChild(textArea);
     </script>
     
 </body>
