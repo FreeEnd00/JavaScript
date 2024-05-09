@@ -6,6 +6,7 @@
     <title>Set Interval Js</title>
 </head>
 <body>
+    <button style="color: white; background-color: red; border-top-right-radius: 5px; border-bottom-right-radius: 5px; padding: 1rem; font-size: 1rem;" id="macchina">Cliccami</button>
     <p id="frase">Le stelle sono troppe!</p>
     <script>
         //intervallo ogni secondo
@@ -39,17 +40,76 @@
         //     }
         // },1000);
         //simula una presentazione che cambia slide
-        const slides = ["Slide Acqua","Slide Terra","Slide Fuoco","Slide Aria"];
+        // const slides = ["Slide Acqua","Slide Terra","Slide Fuoco","Slide Aria"];
+        // let indice = 0;
+        // function cambiaSlide(){
+        //     console.log(slides[indice]);
+        //     indice++;
+        //     if (indice === slides.length){
+        //         indice = 0;
+        //     }
+        // }
+        // setInterval(cambiaSlide,3000);
+        //crea pulsante che aumenta un valore di 1 ogni volta che viene cliccato
+        // const pulsante = document.createElement("button");
+        // pulsante.textContent = "Contatore di click!"
+        // document.body.appendChild(pulsante);
+        // let contatore = 0;
+        // pulsante.addEventListener("click",function(){
+        //     contatore++;
+        // });
+        // setInterval(function(){
+        //     console.log(contatore);
+        // },1000)
+        //fai traslare orizzontalmente un elemento in maniera graduale
+        const macchina = document.getElementById("macchina");
+        let posizione = 0;
+        const viaggio = setInterval(function(){
+            posizione += 10;
+            macchina.style.transform = `translateX(${posizione}px)`;
+            
+            if(posizione >= 700){
+                clearInterval(viaggio);
+            };
+        },100)
+        macchina.addEventListener("click", function(){
+            posizione = 0;
+            macchina.style.transform = `translateX(${posizione}px)`;
+        });
+        //costruisci un timer per secondi
+        // let secondi = 0;
+        // const timer = setInterval(function(){
+        //     secondi++;
+        //     if(secondi >= 1000){
+        //     clearInterval(timer);
+        //     }else if(secondi === 1){
+        //         console.log("Tempo trascorso: ",secondi,"secondo");
+        //     }else{
+        //     console.log("Tempo trascorso: ",secondi,"secondi");
+        //     }
+
+        // },1000);
+        //crea timer con minuti e secondi
+        let minuti = 0;
+        let secondi = 0;
+        const timerMinuti = setInterval(function(){
+            secondi++;
+            if(secondi === 60){
+                minuti++;
+                secondi = 0;
+            }
+            console.log(`${minuti.toString().padStart(2,"0")}:${secondi.toString().padStart(2,"0")}`);
+        },1000);
+        //cambia sfondo della pagina ogni 5 secondi
+        const colori = ["red","blue","yellow","orange","pink","green","brown","violet","purple"];
         let indice = 0;
-        function cambiaSlide(){
-            console.log(slides[indice]);
+        const coloreSfondo = setInterval(function(){
+            document.body.style.backgroundColor = colori[indice];
             indice++;
-            if (indice === slides.length){
+            if(indice === colori.length){
                 indice = 0;
             }
-        }
-        setInterval(cambiaSlide,3000);
-
+        },5000)
     </script>
 </body>
 </html>

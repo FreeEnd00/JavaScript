@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeout JS</title>
+</head>
+<body id="contenuto" style="padding: 0; margin: 0;">
+    <div id="notifica" style="display: flex; justify-content: end; ">
+        <p id="messaggio" style="background-color: white; padding: 1rem;margin: 0; border-bottom-left-radius: 1rem; border: solid 1px gray; box-shadow: 1px 1px 10px black; font-weight: bold; text-decoration: underline;background-color: aliceblue;">Hai una nuova notifica!</p>
+    </div>
+    <img src="https://picsum.photos/55/55" alt="" id="hot">
+    <img src="https://picsum.photos/100/100" alt="" id="hide">
+    <img src="https://picsum.photos/100/100" alt="" id="opacity">
+    <button id="pulsante">Cambierò!</button>
+    <script>
+        //fai qualcosa dopo 3 secondi
+        setTimeout(function(){
+            console.log("Ciao Mondo");
+        },3000)
+        //nascondi elemento dopo due secondi
+        const hot = document.getElementById("hot");
+        const rimuoviHot = setTimeout(function(){
+            hot.remove();
+            console.log("Immagine eliminata!")
+        },2000)
+        //crea timer che mostra un messaggio dopo un tot di secondi
+        const tempo = 5;
+        setTimeout(() => {
+            console.log(`Sono passati ${tempo} secondi`)
+        }, tempo * 1000);
+        //nascondere elemento dopo due secondi
+        const hide = document.getElementById("hide");
+        setTimeout(() => {
+            hide.style.display = "none";
+        }, 2000);
+        //fai comparire un elemento gradualmente 
+        const opacity = document.getElementById("opacity");
+        opacity.style.opacity = "0";
+        setTimeout(() => {
+            opacity.style.opacity = "1";
+        }, 1000);
+        //messaggio di avviso dopo 4 sec
+        const messaggio = document.createElement("p");
+        messaggio.textContent = "Errore Critico!";
+        messaggio.style.color = "red";
+        messaggio.style.fontWeight = "bold";
+        messaggio.style.fontSize = "2rem";
+
+        setTimeout(() => {
+            document.body.appendChild(messaggio);
+        }, 4000);
+        //aggiorna il contenuto della pagina
+        // setTimeout(() => {
+        //     document.getElementById("contenuto").innerHTML = "Nuovo Elemento"
+        // }, 4000);
+        //crea effetto di dissolvenza dopo 2 secondi
+        setTimeout(() => {
+            document.body.style.transition = "background-color 1s ease";
+            document.body.style.backgroundColor = "lightBlue";
+        }, 2000);
+        //mostra messaggio di notifica per 3 secondi
+        const notifica = document.getElementById("notifica");
+        setTimeout(() => {
+            notifica.style.display = "none";
+        }, 3000);
+        //cambia lo stile di un pulsante dopo tot secondi
+        const pulsante = document.getElementById("pulsante");
+        setTimeout(() => {
+            pulsante.style.padding = "1rem";
+            pulsante.style.fontSize = "1rem";
+            pulsante.style.border  = "none";
+            pulsante.style.borderRadius = "1rem";
+            pulsante.style.fontWeight = "bold";
+            pulsante.style.backgroundColor = "black";
+            pulsante.style.color = "White";
+            pulsante.style.display = "flex";
+            pulsante.style.margin = "1rem";
+            pulsante.textContent = "Sono cambiato!"
+        }, 3000);
+
+    </script>   
+</body>
+</html>

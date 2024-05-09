@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise JS</title>
+</head>
+<body>
+    <script>
+        //promise che si risolverà in due secondi
+        // const promessa = new Promise(function(resolve,reject){
+        //     setTimeout(() => {
+        //         resolve("Promessa risolta");
+        //     }, 2000);
+        // });
+        // promessa.then(function(risultato){
+        //     console.log(risultato);
+        // });
+        //promise che verrà rifiutata in 3 secondi
+        // const promessaPersa = new Promise(function(resolve,reject){
+        //     setTimeout(() => {
+        //         reject("Promessa rifiutata");
+        //     }, 3000);
+        // });
+        // promessa.catch(function(errore){
+        //     console.log(errore);
+        // })
+        //simula una serie di chiamate asincrone
+        function eseguiChiamate(numero){
+            return new Promise(function(resolve,reject){
+                setTimeout(() => {
+                    resolve(`Chiamata ${numero} effettuata con successo!`);
+                }, 1000);
+            });
+        }
+        
+        eseguiChiamate(1)
+            .then(function (risposta){
+                console.log(risposta);
+                return eseguiChiamate(2);
+            })
+            .then(function(risposta){
+                console.log(risposta);
+                return eseguiChiamate(3);
+            })
+            .then(function(risposta){
+                console.log(risposta);
+                return eseguiChiamate(4);
+            })
+            .then (function(risposta){
+                console.log(risposta);
+            })
+            .catch(function(errore){
+                console.log(errore);
+            });
+
+
+            //promise accettata o rifiutata immediatamente
+            const promessaImmediata = new Promise(function(resolve,reject){
+                if(Math.random() < 0.5){
+                    resolve("Promessa risolta!");
+                }else{
+                    reject("Promessa rifiutata!");
+                }
+            });
+
+            promessaImmediata
+                .then(function(risposta){
+                    console.log(risposta);
+                })
+                .catch(function(errore){
+                    console.log(errore);
+                });
+
+
+        //utilizza Promisse.All per chiamare più promise contemporaneamente
+        const promCall1 = eseguiChiamate(1);
+        const promCall2 = eseguiChiamate(2);
+        const promCall3 = eseguiChiamate(3);
+        const proCall4 = eseguiChiamate(4);
+
+        Promise.all([promCall1,promCall2,promCall3,proCall4])
+                .then(function(risultati){
+                    console.log(risultati);
+                })
+                .catch(function(errore){
+                    console.log(errore);
+                });
+
+        
+        //utilizza Promise.race per ottenere la promise più veloce
+        const promessaVeloce = new Promise(function(resolve,reject){
+            setTimeout(() => {
+                resolve("Promessa Veloce risolta!");
+            }, 4000);
+        });
+        const promessaLenta = new Promise(function(resolve,reject){
+            setTimeout(() => {
+                resolve("Promessa Lenta risolta!");
+            }, 8000);
+        });
+
+        Promise.race([promessaVeloce,promessaLenta])
+            .then(function(risultato){
+                console.log(risultato);
+            })
+            .catch(function(errore){
+                console.log(errore);
+            });
+    
+
+
+
+        //caricare dati con una Promise    
+    </script>
+</body>
+</html>
