@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async e Await JS</title>
+</head>
+<body>
+    <script>
+        //crea funzione asincrona che attende un certo numero di secondi prima di restituire un certo valore
+        async function attesa(ms){
+            await new Promise((resolve)=>setTimeout(resolve,ms));
+            return "Attendi Completato";
+        }
+        async function esegui(){
+            const risultato = await attesa(2000);
+            console.log(risultato);
+        }
+        esegui();
+
+
+
+        //gestire l'errore della funzione asincrona con try/catch
+        async function eseguiAsync(){
+            try{
+                const risposta = await fetch("./dati.json");
+                const dati = await risposta.json();
+                console.log(dati);
+            } catch (error){
+                console.log("Errore nel caricamento dei dati",error);
+            }
+        }
+        eseguiAsync();
+
+
+
+        //utilizza Promise.all per eseguire più chiamate asyncrone contemporaneamente
+        async function ottieniDati(){
+        const promessa1 = fetch("./dati.json");
+        const promessa2 = fetch("./dati2.json");
+        const promessa3 = fetch("./dati3.json");
+
+        const [risultato1,risultato2,risultato3] = await Promise.all([promessa1,promessa2,promessa3]);
+
+        const dati1 = await risultato1.json();
+        const dati2 = await risultato2.json();
+        const dati3 = await risultato3.json();
+
+        console.log(dati1,dati2,dati3);
+        }
+        ottieniDati();
+
+
+
+        //utilizza await per restituire una promise
+        function eseguiChiamata(){
+            return new Promise(function(resolve,reject){
+                setTimeout(() => {
+                    resolve("Chiamata effettuata con successo!")
+                }, 2000);
+            });
+        }
+        async function esegui(){
+            const risultato = await eseguiChiamata();
+            console.log(risultato);
+        };
+        esegui();
+
+
+        //utilizza await con una funzione asincrona per ottenere dei dati
+        async function ottenereDati(){
+            const risposta = await fetch("./dati.json");
+            const dati = await risposta.json();
+            return dati;
+        }
+
+        ottenereDati()
+            .then(function(dati){
+                console.log(dati);
+            })
+            .catch(function(error){
+                console.log(error);
+            })
+        
+            
+
+
+        //usare await per ottenere una promessa rifiuta
+        function promessaRifiutata(){
+            return new Promise(function(resolve,reject){
+                reject("Promessa rifiutata");
+            });
+        }      
+        
+        async function eseguiPromessaRif(){
+            try{
+                const risultato = await promessaRifiutata();
+                console.log(risultato);
+            } catch(error){
+                console.log(error);
+            }
+        }
+
+        eseguiPromessaRif();
+
+
+
+        //leggi file
+        // async function leggiFile(file) {
+        // const fileReader = new FileReader();
+
+        // return new Promise(function (resolve, reject) {
+        //     fileReader.onload = function (event) {
+        //     resolve(event.target.result);
+        //     };
+
+        //     fileReader.onerror = function () {
+        //     reject("Errore nella lettura del file");
+        //     };
+
+        //     fileReader.readAsText(file);
+        // });
+        // }
+
+        // const fileInput = document.getElementById("file-input");
+        // const file = fileInput.files[0];
+
+        // async function esegui() {
+        // try {
+        //     const contenuto = await leggiFile(file);
+        //     console.log(contenuto);
+        // } catch (errore) {
+        //     console.log(errore);
+        // }
+        // }
+
+        // esegui();
+
+
+        
+
+        //ottieni dati da un database fittizio
+        async function ottieniDatiDatabase(){
+            return new Promise(function(resolve,reject){
+                setTimeout(() => {
+                    const dati = {nome:"Matteo", cognome: "Mulinelli"};
+                    resolve(dati);
+                }, 2000);
+            })
+        }
+        async function eseguiDatiDatabase(){
+            const dati = await ottieniDatiDatabase();
+            console.log(dati);
+        }
+
+        eseguiDatiDatabase();
+
+
+
+
+        //utilizza await con una funzione async per effettuare una chiamata AJAX
+        async function effettuaChiamataAJAX(url,metodo){
+            const xhr = new XMLHttpRequest();
+            
+            return new Promise(function(resolve,reject){
+                xhr.open(metodo,url);
+
+                xhr.onload = function(){
+                        if(xhr.status >= 200 && xhr.status < 300){
+                            resolve(xhr.responseText);
+                        }else{
+                            reject("Errore nella chiamata AJAX");
+                        }
+                };
+
+                xhr.onerror = function(){
+                    reject("Errore nella chiamata AJAX");
+                }
+
+                xhr.send();
+            });
+        };
+
+        async function eseguiAJAX(){
+            try{
+                const response = await effettuaChiamataAJAX("./dati.json","GET");
+                console.log(response);
+            }catch(error){
+                console.log(error);
+            }
+        }
+        eseguiAJAX();
+
+
+
+        //esegui operazioni in sequenza
+        async function operazioneInSequenza1(){
+            return new Promise(function(resolve){
+                setTimeout(() => {
+                    resolve("Prima operazione in sequenza eseguita");
+                }, 2000);
+            });
+        };
+        async function operazioneInSequenza2(){
+            return new Promise(function(resolve){
+                setTimeout(() => {
+                    resolve("Seconda operazione in sequenza eseguita");
+                }, 2000);
+            });
+        };
+        async function operazioneInSequenza3(){
+            return new Promise(function(resolve){
+                setTimeout(() => {
+                    resolve("Terza operazione in sequenza eseguita");
+                }, 2000);
+            });
+        };
+
+        async function eseguiSequenze(){
+            const primaSequenza = await operazioneInSequenza1();
+            console.log(primaSequenza);
+
+            const secondaSequenza = await operazioneInSequenza2();
+            console.log(secondaSequenza);
+
+            const terzaSequenza = await operazioneInSequenza3();
+            console.log(terzaSequenza);
+        }
+        eseguiSequenze();
+
+
+    </script>
+</body>
+</html>

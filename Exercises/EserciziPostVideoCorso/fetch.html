@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch JS</title>
+</head>
+<body>
+    <script>
+        //eseguire una richiesta GET e ottenere dati da un API
+        fetch("./dati.json")
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.log("Errore nella richiesta", error));
+
+
+        //eseguire una richiesta POST e inviare dati ad un API
+        // const dati = {
+        //     nome:"Ugo",
+        //     cognome:"Foscolo",
+        //     eta:43,
+        //     sesso:"maschio",
+        //     nazionalita:"italiana",
+        //     anno:"1934",
+        // };
+
+        // fetch("./dati.json",{
+        //     method:"POST",
+        //     headers:{
+        //         "Content-Type":"application/json",
+        //     },
+        //     body: JSON.stringify(dati),
+        // })
+        //     .then((response) => response.json())
+        //     .then((data) => console.log(data))
+        //     .catch((error) => console.log("Errore nella richiesta", error))
+
+
+        const dati = {
+        nome: "Mario",
+        cognome: "Rossi",
+        };
+
+        // fetch("./dati.json", {
+        // method: "POST",
+        // headers: {
+        //     "Accept":"application/json",
+        //     "Content-Type": "application/json",
+        // },
+        // body: JSON.stringify(dati),
+        // })
+        // .then((response) => response.json())
+        // .then((data) => console.log(data))
+        // .catch((error) => console.log("Errore nella richiesta", error));
+        
+        const data = new FormData();
+        data.append("json",JSON.stringify(dati));
+
+        fetch("./dati.json",{
+            method:"POST",
+            body : data
+        })
+        .then(function(res){
+            return res.json();
+        })
+        .then(function(data){
+            alert(JSON.stringify(data))
+        })
+
+    </script>
+</body>
+</html>

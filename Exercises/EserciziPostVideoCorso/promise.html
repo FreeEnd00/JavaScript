@@ -111,7 +111,95 @@
 
 
 
-        //caricare dati con una Promise    
+        //caricare dati con una Promise
+        function caricaDati(){
+            return new Promise(function(resolve,reject){
+                fetch("./dati.json")
+                .then(function(response){
+                    if(response.ok){
+                        resolve(response.json());
+                    }else{
+                        reject("Errore nel caricamento dei dati");
+                    };
+                })
+                .catch(function(error){
+                    reject(error);
+                });
+            });
+        }    
+
+        caricaDati()
+            .then(function (dati){
+                console.log(dati);
+            })
+            .catch(function(errore){
+                console.log(errore);
+            });
+        
+            
+
+
+        //chiamata AJAX
+        function chiamataAjax(url,metodo){
+            return new Promise (function(resolve,reject){
+                const xhr = new XMLHttpRequest();
+                
+                xhr.open(metodo,url);
+
+                xhr.onload = function (){
+                    if(xhr.status >= 200 && xhr.status < 300){
+                        resolve(xhr.responseText);
+                    }else{
+                        reject("Errore nella chiamata AJAX");
+                    }
+                }
+
+                xhr.onerror = function(){
+                    reject("Errore nella chiamata AJAX");
+                };
+
+                xhr.send();
+            });
+        }    
+
+        chiamataAjax("./dati.json","GET")
+            .then(function(response){
+                console.log(response);
+            })
+            .catch(function(error){
+                console.log(error);
+            })
+
+
+
+
+
+        //promise in sequenza
+        function operazione1(){
+            return new Promise(function(resolve,reject){
+                setTimeout(() => {
+                    resolve("Prima operazione risolta");
+                }, 2000);
+            });
+        }    
+        function operazione2(){
+            return new Promise(function(resolve,reject){
+                setTimeout(() => {
+                    resolve("Seconda operazione risolta");
+                }, 3000);
+            });
+        };
+        operazione1()
+            .then(function(risposta1){
+            console.log(risposta1);
+            return operazione2();
+            })
+            .then(function(risposta2){
+            console.log(risposta2);
+            })
+            .catch(function(error){
+            console.log(error);
+            });
     </script>
 </body>
 </html>
