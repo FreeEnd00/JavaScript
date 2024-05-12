@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON </title>
+</head>
+<body>
+    <script>
+        //convertire un oggetto JS in stringa JSON
+        const oggetto = {
+            nome:"Righello",
+            colore:"Giallo",
+            madeIn: "Italy"
+        }
+        const jsonStringa = JSON.stringify(oggetto);
+
+        console.log(jsonStringa);
+
+
+        //convertire una stringa json in oggetto JS
+        const stringaJson = '{"nome":"Antonio","cognome":"Minarco","eta":24}';
+        const oggettoJS = JSON.parse(jsonStringa);
+
+        console.log(oggettoJS);
+
+        
+
+        //accedere a dei valori in un oggetto JSON
+        const oggettoJson = '{"nome":"Rinaldo","cognome": "Bedino","eta":56}';
+        const oggettoJavaS = JSON.parse(oggettoJson);
+
+        console.log(oggettoJavaS.nome);
+        console.log(oggettoJavaS.cognome);
+        console.log(oggettoJavaS.eta);
+
+
+
+        //modifica i valori di un oggetto Json
+
+        oggettoJavaS.nome = "Mauro";
+        oggettoJavaS.cognome = "Ninnilo";
+        oggettoJavaS.eta = 46;
+        console.log(oggettoJavaS.nome);
+        console.log(oggettoJavaS.cognome);
+        console.log(oggettoJavaS.eta);
+
+
+        //aggiungere una nuova proprietà all'oggetto Json
+
+        oggettoJavaS.professione = "Ingegnere meccanico";
+        console.log(oggettoJavaS);
+        console.log(oggettoJavaS.professione);
+
+
+        //rimuovi una proprietà dall'oggetto Json
+
+        delete oggettoJavaS.eta;
+        console.log(oggettoJavaS);
+
+        
+
+        //iterare un array di oggetti Json
+        const oggettiJson = '[{"nome": "Carlotta","cognome":"Marcialis","eta":22},{"nome":"Thomas","cognome":"Ginder","eta":23}]';
+        const arrayOggetti = JSON.parse(oggettiJson);
+        arrayOggetti.forEach(function(oggetto){
+            console.log(oggetto.nome);
+            console.log(oggetto.cognome);
+            console.log(oggetto.eta);
+        })
+
+
+
+        //filtra un array di oggetti JSON
+
+        const filtroArray = arrayOggetti.filter(function(oggetto){
+            return oggetto.nome === "Carlotta";
+        });
+
+        console.log(filtroArray);
+
+
+
+        //ordina una array di oggetti Json
+
+
+        const jsonOggetti = '[{"nome":"Ziggurat","cognome":"Buddah"},{"nome": "Angela","cognome":"Zoncheddu"}]';
+        const arrayJson = JSON.parse(jsonOggetti);
+
+        arrayJson.sort(function(a,b){
+            if(a.nome < b.nome){
+                return -1;
+            }
+            if(a.nome > b.nome){
+                return 1;
+            }
+            return 0;
+        });
+
+        console.log(arrayJson)
+
+
+
+        //salva un oggetto JSON in locale
+
+
+        const object = {
+            nome: "Salsiccia",
+            natura: "Animale",
+            lunghezzaCm: 15,
+            larghezzaCm: 3,
+            scadenza: {
+                giorno : 29,
+                mese: 5,
+                anno: 2028,
+            },
+        };
+        const objectJSON = JSON.stringify(object);
+        const file = new Blob([objectJSON],{type:"application/json"});
+        const url = URL.createObjectURL(file);
+        const link = document.createElement("a");
+        document.body.appendChild(link);
+        link.textContent = "Scarica file!"
+        link.href = url;
+        link.download = "data.json";
+        //link.click();
+
+
+        
+
+
+    </script>
+</body>
+</html>

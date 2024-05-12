@@ -15,25 +15,25 @@
 
 
         //eseguire una richiesta POST e inviare dati ad un API
-        const dati = {
-            nome:"Ugo",
-            cognome:"Foscolo",
-            eta:43,
-            sesso:"maschio",
-            nazionalita:"italiana",
-            anno:"1934",
-        };
+        // const dati = {
+        //     nome:"Ugo",
+        //     cognome:"Foscolo",
+        //     eta:43,
+        //     sesso:"maschio",
+        //     nazionalita:"italiana",
+        //     anno:"1934",
+        // };
 
-        fetch("./dati.json",{
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json",
-            },
-            body: JSON.stringify(dati),
-        })
-            .then((response) => response.json())
-            .then((data) => console.log(data))
-            .catch((error) => console.log("Errore nella richiesta", error))
+        // fetch("./https://api.publicapis.org/entries",{
+        //     method:"POST",
+        //     headers:{
+        //         "Content-Type":"application/json",
+        //     },
+        //     body: JSON.stringify(dati),
+        // })
+        //     .then((response) => response.json())
+        //     .then((data) => console.log(data))
+        //     .catch((error) => console.log("Errore nella richiesta", error))
 
 
         // fetch("./dati.json", {
@@ -62,6 +62,38 @@
         //     alert(JSON.stringify(data))
         // })
 
+        
+
+        //aggiorna un API
+        // const datiAggiornati = {
+        //     nome: "Nicola",
+        //     cognome:"Molisano",
+        // };
+
+        // fetch("./dati.json",{
+        //     method: "PUT",
+        //     headers:{
+        //         "Content-Type":"application/json",
+        //     },
+        //     body: JSON.stringify(datiAggiornati),
+        // })
+        //     .then((response) => response.json())
+        //     .then((data) => console.log(data))
+        //     .catch((error) => console.log("Errore nella richiesta", error))
+        
+
+
+
+
+
+        //elimina dati da un Api
+
+        fetch("./dati.json",{
+            method: "DELETE",
+        })
+            .then((response) => response.json())
+            .then((data) => console.log(data))
+            .catch((error) => console.log("Errore nella richiesta", error))
     </script>
 </body>
 </html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy TasksJS</title>
+</head>
+<body>
+    <script>
+        let admin;
+        let name;
+        name = "Jhon";
+        admin = name;
+        console.log(admin,name)
+
+        //crea una variabile con il nome del nostro pianeta (come la chiameresti?)
+        const ourPlanet = "Earth";
+        //crea una variabile con il nome dell'utente che sta visitando il sito
+        let currentUserName = "Billy";
+        
+
+        //vero se eta compresa tra 14 e 90
+        let age = 1
+        if(age >= 14 && age <= 90){
+            console.log("Vero")
+        }
+        if(age < 14 || age > 90){
+            console.log("numero non compreso tra 14 e 90")
+        }
+        if(!(age >= 14 && age <= 90)){
+            console.log("il numero non è compreso tra 14 e 90")
+        }
+
+
+
+        //programma che simuli un login admin con password
+
+        let userName = prompt("Who's there:","");
+        if(userName === "Admin"){
+            let password = prompt("Enter your password","")
+            if(password ==="TheMaster"){
+                alert("Welcome!");
+            }else if(password === null || password === ""){
+                alert("Canceled");
+            }else{
+                alert("Wrong password!");
+            }
+        }else if(userName === null || password === ""){
+            alert("Canceled");
+        }else{
+            alert("I don't know you");
+        }
+
+
+
+        //if else di un console log che stampi il browser
+
+        const browser = "Edge";
+
+        if(browser === "Edge"){
+            alert("You've got the Edge!");
+        }else if(browser === "Chrome" || browser === "Firefox" || browser === "Safari" || browser === "Opera"){
+            alert("Okay we support these browsers too");
+        }else{
+            alert("We hope this page looks ok!");
+        }
+
+
+
+        //esercizio da if a switch
+        const a = +prompt("a?","");
+        switch(a){
+            case 0 :
+                alert(0);
+                break;
+            case 1 :
+                alert(1);
+                break;
+            case 2 :
+            case 3 :
+                alert("2,3");
+                break;
+            default :
+                alert("Another number");
+        }
+
+
+        //funzione dentro un oggetto
+
+        const funzioneInterna = {
+            nome: "Pirlo",
+            cognome: "Altalena",
+            sayHi: function(){
+                alert("Buonaseeeeera!")
+            }
+        }
+        funzioneInterna.sayHi();
+
+
+        let str = "Hello";
+        str.test = 5;
+        alert(str.test)
+
+
+        //modi per scrivere i numeri grandi
+
+        let num = 100000000000; 
+        let numeroSemplificato = 100_000_000_000; 
+        let numeroAncorPiuSemplificato = 1e9; //un miliardo 1 + 9 zeri
+
+        let microsecondo = 0.000001;
+        let microsecondoSemplificato = 1e-6; 
+    </script>
+</body>
+</html>
