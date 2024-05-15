@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy TasksJS</title>
+</head>
+<body>
+    <script>
+        // let admin;
+        // let name;
+        // name = "Jhon";
+        // admin = name;
+        // console.log(admin,name)
+
+        // //crea una variabile con il nome del nostro pianeta (come la chiameresti?)
+        // const ourPlanet = "Earth";
+        // //crea una variabile con il nome dell'utente che sta visitando il sito
+        // let currentUserName = "Billy";
+        
+
+        // //vero se eta compresa tra 14 e 90
+        // let age = 1
+        // if(age >= 14 && age <= 90){
+        //     console.log("Vero")
+        // }
+        // if(age < 14 || age > 90){
+        //     console.log("numero non compreso tra 14 e 90")
+        // }
+        // if(!(age >= 14 && age <= 90)){
+        //     console.log("il numero non è compreso tra 14 e 90")
+        // }
+
+
+
+        // //programma che simuli un login admin con password
+
+        // let userName = prompt("Who's there:","");
+        // if(userName === "Admin"){
+        //     let password = prompt("Enter your password","")
+        //     if(password ==="TheMaster"){
+        //         alert("Welcome!");
+        //     }else if(password === null || password === ""){
+        //         alert("Canceled");
+        //     }else{
+        //         alert("Wrong password!");
+        //     }
+        // }else if(userName === null || password === ""){
+        //     alert("Canceled");
+        // }else{
+        //     alert("I don't know you");
+        // }
+
+
+
+        // //if else di un console log che stampi il browser
+
+        // const browser = "Edge";
+
+        // if(browser === "Edge"){
+        //     alert("You've got the Edge!");
+        // }else if(browser === "Chrome" || browser === "Firefox" || browser === "Safari" || browser === "Opera"){
+        //     alert("Okay we support these browsers too");
+        // }else{
+        //     alert("We hope this page looks ok!");
+        // }
+
+
+
+        // //esercizio da if a switch
+        // const a = +prompt("a?","");
+        // switch(a){
+        //     case 0 :
+        //         alert(0);
+        //         break;
+        //     case 1 :
+        //         alert(1);
+        //         break;
+        //     case 2 :
+        //     case 3 :
+        //         alert("2,3");
+        //         break;
+        //     default :
+        //         alert("Another number");
+        // }
+
+
+        // //funzione dentro un oggetto
+
+        // const funzioneInterna = {
+        //     nome: "Pirlo",
+        //     cognome: "Altalena",
+        //     sayHi: function(){
+        //         alert("Buonaseeeeera!")
+        //     }
+        // }
+        // funzioneInterna.sayHi();
+
+
+        // let str = "Hello";
+        // str.test = 5;
+        // alert(str.test)
+
+
+        //modi per scrivere i numeri grandi
+
+        let num = 100000000000; 
+        let numeroSemplificato = 100_000_000_000; 
+        let numeroAncorPiuSemplificato = 1e9; //un miliardo 1 + 9 zeri
+
+        let microsecondo = 0.000001;
+        let microsecondoSemplificato = 1e-6; 
+
+        let numInBase10 = 255;
+        console.log(numInBase10.toString(16));
+        console.log(numInBase10.toString(2));
+
+        //chiama un metodo direttamente su un numero
+        console.log(123456..toString(36));
+        console.log((123456).toString(36));
+
+        //tipi di basi numeriche 0x(esadecimare HEX), 0o(octadecimale), 0b(binario)
+
+        //arrotondamento numeri
+
+        console.log(Math.floor(45.9)); //per difetto
+        console.log(Math.ceil(7.1)); //per eccesso
+        console.log(Math.round(3.5)); //arrotondamento intelligente da 3.4 è per difetto, oltre per eccesso
+        console.log(Math.trunc(4.9)); //rimuove le cifre dopo la virgola
+
+        let numDecimale = 1.23456;
+        console.log(Math.round(numDecimale * 100) / 100); //output 1.23
+        console.log(numDecimale.toFixed(2)); // output "1.23" lo rende stringa e arrotonda come Math.round
+        let test = numDecimale.toFixed(2);
+        console.log(typeof test);
+        let numTest = 12.34
+        console.log(+numDecimale.toFixed(2)); //output 1,23 e grazie al + torna di tipo numero
+        console.log(numTest.toFixed(5)); //output 12.34000
+        console.log(1e500); //infinity numero troppo grande
+
+
+        console.log(0.1 + 0.2 == 0.3); //false
+        console.log(0.1 + 0.2)//0.30000000000000004
+        console.log(0.1.toString(2)); 
+        console.log(0.2.toString(2));
+        console.log((0.1+0.2).toString(2));
+        console.log(0.1.toFixed(20));
+        let somma = 0.1 + 0.2;
+        console.log(somma.toFixed(2)); // output "0.30"
+        console.log(+somma.toFixed(2)); //output 0.3
+        console.log((0.1 * 10 + 0.2 * 10) / 10); //output 0.3
+        console.log((0.28 * 100 + 0.14 * 100) / 100); //0.4200000000000001
+        
+
+        //come verificare se un numero è NaN (not a Number);
+        console.log(isNaN(NaN)); //true
+        console.log(isNaN("str")); //true
+
+        console.log(NaN === NaN); //false modo sbagliato
+        
+
+        //siInfinite converte un argomento in numero normale e verifica se è un numero o meno
+        console.log(isFinite("15")); //true
+        console.log(isFinite("str")); //false è un NaN
+        console.log(isFinite(Infinity)); //false valore speciale
+
+        // let Numero = +prompt("Scrivi un numero: ");
+        // console.log(isFinite(Numero)); //false se è Infinity/ -Infinity o NaN
+        console.log("separatore");
+        console.log(Number.isNaN(NaN)); //true
+        console.log(Number.isNaN("str" / 2)); // true
+        console.log(Number.isNaN("str")); //false
+        console.log(isNaN("str")); //true
+
+        console.log(Number.isFinite(123)); //true
+        console.log(Number.isFinite(Infinity)); //false
+        console.log(Number.isFinite(2 / 0)); //false
+        console.log(Number.isFinite("123")); //false
+        console.log(isFinite("123")); //true
+
+        //parseInt e parseFloat
+
+        console.log("Separatore");
+        console.log(parseInt("100px")); //100
+        console.log(parseFloat("12.5em")); // 12.5
+
+        console.log(parseInt("12.5")); //12
+        console.log(parseFloat("12.3.4")) //12.3
+        console.log(parseInt("a123")) //NaN il primo simbolo interrompe il processo
+
+        //parseInt con diverse basi
+        console.log(parseInt("0xff",16)); //255
+        console.log(parseInt("ff",16)); //255
+        console.log(parseInt("2n9c",36)); //123456
+
+        //Math.random()
+        console.log(Math.random()) //numero randomico da 0 a 1 non includendo 1
+        //Math.max e Math.min
+        console.log(Math.max(1,2,10,-13,4,9)); //10
+        console.log(Math.min(2,49,-19,-2,5)); //-19
+        //Math.pow
+        console.log(Math.pow(2,10)); //2 moltiplicato per 2 10 volte (2*2*2*2*2*2*2*2*2*2) 1024S
+        
+
+
+        //esercizio: somma di due numeri dichiarati dall'utente
+        let numeroDichiarato1 = +prompt("Inserisci il primo numero: ");
+        let numeroDichiarato2 = +prompt("Inserisci il secondo numero");
+        console.log(numeroDichiarato1 + numeroDichiarato2);
+
+        //esercizio funzione che restituisca il numero dichiarato dall'utente e dia null se è sbagliato
+        function readNumber(){
+            let num;
+            do{
+                num = prompt("Inserisci un numero valido: ");
+            } while(!isFinite(num));
+
+            if(num === null || num === ""){
+                return null
+            }
+            return +num;
+        }
+
+        alert(`Read: ${readNumber()}`);
+
+        //separatore
+        console.log("separatore")
+        let i = 0;
+        while(i < 11){
+                i += 0.2;
+                if(i > 9.8 && i < 10.2){
+                    console.log(i)
+                }
+        }
+
+
+        //funzione che genera un numero randomico tra un numero minimo min e un numero massimo max
+        console.log("separatore")
+        function random(min,max){
+           return min + Math.random() * (max-min);
+        }
+        console.log(random(1,5));
+        console.log(random(1,5));
+        console.log(random(1,5));
+
+
+        //funzione che genera un numero intero randomico tra un numero minimo min e un numero massimo max
+
+        console.log("separatore");
+        function randomInt(min,max){
+            let rand = min - 0.5 + Math.random() * (max - min + 1);
+            return Math.round(rand); 
+        }
+
+        console.log(randomInt(1,10));
+        console.log(randomInt(1,10));
+        console.log(randomInt(1,10));
+    </script>
+</body>
+</html>

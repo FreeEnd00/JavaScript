@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy task with strings</title>
+</head>
+<body>
+    <script>
+        //linee multiple
+        const listaClienti = `Clienti: 
+        * Thomas
+        * Carlotta
+        * Aurora
+        `;
+        console.log(listaClienti)
+        const listaIngredienti = "Ingredienti:\n Pane\n Prosciutto\n Formaggio";
+        console.log(listaIngredienti);
+        const backHello = `Hello
+        World`;
+        const normalHello = "Hello \n World";
+        console.log(backHello);
+        console.log(normalHello);
+
+        testStr = "Hello\tWorld"
+        console.log(testStr);
+
+        console.log(`I\`m ghe`);
+        
+
+        //posizione lettere in una stringa
+        const str = "Hello World"
+        //prima lettera
+        console.log(str[0]);
+        console.log(str.at(0));
+
+        //ultima lettera
+        console.log(str[str.length -1]);
+        console.log(str.at(-1));
+
+        //undefined
+        console.log(str[-2])
+
+        //stampa tutti i caratteri di una stringa
+        for(char of str){
+            console.log(char);
+        }
+        console.log("Separatore")
+        //non si possono cambiare i caratteri di una stringa
+        str[0] = "h";
+        console.log(str[0]);
+        //metodo per modificare i caratteri di una stringa
+        let parola = "Hi";
+        console.log(parola);
+        parola = "h" + parola[1];
+        console.log(parola);
+
+        //cambiare la grandezza dei caratteri
+        console.log("Panino".toUpperCase());
+        console.log("Panino".toLowerCase());
+        console.log("Panino"[0].toLowerCase());
+        //indexOf
+        const frase ="Widget with id"
+        console.log(frase.indexOf("Widget"));
+        console.log(frase.indexOf("widget"));
+        console.log(frase.indexOf("id"));
+        console.log(frase.indexOf("id",2));
+
+        //trova tutte le volte in cui una sottostringa viene trovata in una stringa
+        console.log("separatore")
+        const esempio = "As sly as a fox, as strong as an ox";
+        const target = "as";
+
+        let pos = 0
+        while(true){
+            let foundPos = esempio.indexOf(target,pos); 
+            if(foundPos == -1) break;
+            console.log(`Found at: ${foundPos}`);
+            pos = foundPos + 1;
+        }
+
+
+        //secondo metodo più corto
+        console.log("metodo corto")
+         pos = -1
+        while((pos = esempio.indexOf(target,pos+1))!=-1){
+            console.log(`Found at: ${pos}`)
+        }
+
+        //if statement con indexOf
+        if(str.indexOf("Widget")!= 1){
+            console.log("Trovato");
+        }
+
+        //.includes
+        console.log("Widget with id".includes("Widget")); //true
+        console.log("Hello".includes("bye")); //false
+        console.log("Widget".includes("id")); //true
+        console.log("Widget".includes("id",3)); //false
+
+        //.startsWith e endsWith
+        console.log("start e end")
+        console.log("Widget".startsWith("Wid")); //true
+        console.log("Widget".endsWith("get")); //true
+
+        //slice()
+        console.log("Slice()")
+        let a = "stringify";
+        console.log(a.slice(0,5)); //strin
+        console.log(a.slice(0,1)); //s
+        console.log(a.slice(2)); //ringify
+        console.log(a.slice(-4,-1)); //gif
+
+        //substring() not support negative numbers they are treated as 0
+        console.log(a.substring(6,2)); //ring
+        console.log(a.substring(2,6)); //ring
+
+        //substr() (inizio, lunghezza)
+        console.log(a.substr(2,4)); //ring
+        console.log(a.substr(-4,2)); //gi
+    </script>
+</body>
+</html>
