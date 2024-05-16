@@ -7,6 +7,7 @@
 </head>
 <body>
     <script>
+        const separatore = "--!!--"
         //linee multiple
         const listaClienti = `Clienti: 
         * Thomas
@@ -29,12 +30,14 @@
         
 
         //posizione lettere in una stringa
+        console.log(separatore);
         const str = "Hello World"
         //prima lettera
         console.log(str[0]);
         console.log(str.at(0));
 
         //ultima lettera
+        console.log(separatore);
         console.log(str[str.length -1]);
         console.log(str.at(-1));
 
@@ -45,7 +48,7 @@
         for(char of str){
             console.log(char);
         }
-        console.log("Separatore")
+        console.log(separatore);
         //non si possono cambiare i caratteri di una stringa
         str[0] = "h";
         console.log(str[0]);
@@ -56,6 +59,7 @@
         console.log(parola);
 
         //cambiare la grandezza dei caratteri
+        console.log(separatore);
         console.log("Panino".toUpperCase());
         console.log("Panino".toLowerCase());
         console.log("Panino"[0].toLowerCase());
@@ -67,7 +71,7 @@
         console.log(frase.indexOf("id",2));
 
         //trova tutte le volte in cui una sottostringa viene trovata in una stringa
-        console.log("separatore")
+        console.log(separatore)
         const esempio = "As sly as a fox, as strong as an ox";
         const target = "as";
 
@@ -93,6 +97,7 @@
         }
 
         //.includes
+        console.log(separatore);
         console.log("Widget with id".includes("Widget")); //true
         console.log("Hello".includes("bye")); //false
         console.log("Widget".includes("id")); //true
@@ -118,6 +123,82 @@
         //substr() (inizio, lunghezza)
         console.log(a.substr(2,4)); //ring
         console.log(a.substr(-4,2)); //gi
+
+
+        //le lettere diacritiche sono "fuori ordine"
+        console.log(separatore);
+        console.log("Österreich" > "Zealand"); //true
+
+        //codePointAt() (string.codePointAt(position))
+
+        console.log(separatore);
+        console.log("Z".codePointAt(0)); //90
+        console.log("z".codePointAt(0)); //122
+        console.log("z".codePointAt(0).toString(16)); // 7a (hexadecimal number)
+
+        console.log(separatore);
+        //String.fromCodePoint(code)
+
+        console.log(String.fromCodePoint(90)); //Z
+        console.log(String.fromCodePoint(0x5a)); //Z (hexadecimal number)
+
+        //characters with codes
+        console.log(separatore);
+        let alfabetoAndMore = "";
+
+        for(let i = 65; i <= 220; i++){
+            alfabetoAndMore += String.fromCodePoint(i);
+        }
+        console.log(alfabetoAndMore);
+
+
+        console.log(separatore);
+        //  str.locateCompare(str2);
+
+        console.log("Österreich".localeCompare("Zealand")); //-1 se è un numero negativo la prima stringa 
+        // è più piccola della seconda
+        //invece se il risultato è positivo, la prima stringa è più grande, 0 invece se sono con lo stesso valore
+        
+
+        //trim() elimina gli spazi vuoti all'inizio e alla fine di una stringa
+        console.log(separatore);
+        let b = "   Ape regina     ";
+        console.log(b);
+        b = b.trim();
+        console.log(b);
+
+
+        //repeat(n) ripete la stringa n volte
+
+        console.log(separatore);
+        let c = "Ciao Mondo";
+        c = c.repeat(10);
+        console.log(c);
+
+
+        //esercizio Funzione che trasforma il primo carattere di una stringa rendendola maiuscola
+        console.log(separatore);
+        function UpperLetter(str){
+            if (!str) return str;
+
+            return str[0].toUpperCase() + str.slice(1);
+        }
+
+        console.log(UpperLetter("salmone"));
+
+        //funzione che trovi lo spamm (parole come XXX e viagra)
+
+        function checkSpam(str){
+            if (!str) return str;
+
+            if(str.includes("XXX") || str.includes("xxx") || str.includes("viagra") || str.includes("Viagra")){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        console.log(checkSpam("Viagra"))
+
     </script>
 </body>
 </html>
