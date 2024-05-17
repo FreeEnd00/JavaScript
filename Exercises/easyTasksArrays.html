@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizi Array</title>
+</head>
+<body>
+    <script>
+        //diachiarare un array
+        // const Array = new Array();
+        // const array = [];
+        const separatore = "--!!--!!--!!--"
+
+        //chiamare gli elementi di un array
+        let frutta = ["Mela","Pera","Ananas"];
+        console.log(frutta[0]);
+        console.log(frutta[1]);
+        console.log(frutta[2]);
+        console.log(separatore);
+
+        //rimpiazzare un elemento
+        frutta[2] = "Banana";
+        console.log(frutta);
+        console.log(separatore);
+
+
+        //aggiungere un nuovo elemento in un array
+        frutta[3] = "Prugna";
+        console.log(frutta);
+        console.log(separatore);
+
+        //controllare la lunghezza di un array
+        console.log("L'array 'frutta' contiene", frutta.length, "elementi");
+        console.log(separatore);
+
+
+        //un array può contenere ogni tipo di elemento
+
+        const array = ["Mela",{nome : "Carlotta"}, true, function(){console.log("Hello World");}];
+        console.log(array);
+        console.log(array[1].nome);
+        array[3]();
+        console.log(separatore);
+
+
+        //accedere all'ultimo elemento di un array
+        // console.log("L'ultimo elemento dell'array 'frutta' è",frutta[frutta.length -1]);
+        console.log("L'ultimo elemento dell'array 'frutta' è", frutta.at(-1));
+        console.log(separatore);
+
+
+
+        //array.pop() per rimuovere l'ultimo elementoda un array
+        console.log(frutta.pop());
+        console.log(frutta);
+        console.log(separatore);
+
+        //array.push(element) per aggiungere un elemento alla fine di un array
+        frutta.push("Prugna");
+        console.log(frutta);
+        console.log(separatore);
+
+
+        //array.shift(element) per rimuovere il primo elemento di un array
+        console.log(frutta.shift());
+        console.log(frutta);
+        console.log(separatore);
+
+
+        //array.unshift(element) per aggiungere un elemento all'inizio di un array
+        frutta.unshift("Mela");
+        console.log(frutta);
+        console.log(separatore);
+
+
+        //push e unshift possono aggiungere più elementi
+        frutta.push("Carota","Pomodoro");
+        frutta.unshift("Ananas","Kiwi");
+        console.log(frutta);
+        console.log(separatore);    
+
+
+        //cilca tutti gli elementi di un array for
+        for(let i = 0; i < frutta.length;i++){
+            console.log(frutta[i]);
+        }
+        console.log(separatore);
+        //altro modo for of
+        for(let frutto of frutta){
+            console.log(frutto);
+        }
+        console.log(separatore);
+        //altro modo for in sconsigliato per gli array
+        for(let frutto in frutta){
+            console.log(frutta[frutto]);
+        }
+        console.log(separatore);
+
+
+        //si può modificare array.length cosi facendo si "taglierà" l'array
+        frutta.length = 3;
+        console.log(frutta);
+        console.log(separatore);
+
+        //il modo migliore per pulire un array è array.length = 0
+        frutta.length = 0;
+        console.log(frutta);
+        console.log(separatore);
+
+
+        //creare un array vuoto con una specifica lunghezza
+        let verdure = new Array(2);
+        console.log(verdure);
+        console.log(verdure.length);
+        console.log(separatore);
+
+        //array dentro un array
+        let matrici = [
+            [1,4,6],
+            [2,5,7],
+            [3,8,9]
+        ];
+        console.log(matrici[1][1]);
+        console.log(separatore);
+
+
+        //toString
+        let arr = [1,2,3];
+        console.log(arr);
+        console.log(String(arr) === "1,2,3") //true
+        console.log([] + 1); //1
+        console.log([1] + 1); //11
+        console.log([1,2] + 1); //1,21
+        console.log(separatore);
+
+        //non comparare gli array con ==
+        console.log([] == []); //false
+        console.log([0] == [0]); //false
+
+        console.log(0 == []); //true
+        console.log("0" == []); //false
+        console.log(separatore);
+
+        //i due array fanno riferimento allo stesso array
+        frutta = ["Mela","Pera","Banana"];
+        let carrelloSpesa = frutta;
+        carrelloSpesa.push("Anguria");
+        console.log(frutta.length); //4 
+        console.log(separatore);
+
+
+        //esercizio 5 operazioni in un array
+        let styles = ["Jazz","Blues"];
+        console.log(styles);
+        styles.push("Rock-n-Roll");
+        console.log(styles);
+        styles[1] = "Classic"
+        console.log(styles);
+        styles.shift();
+        console.log(styles);
+        styles.unshift("Rap","Raggae");
+        console.log(styles);
+        console.log(separatore);
+
+
+        //pushare una funzione in un array
+        let arrayConFunzione = ["a","b"];
+        arrayConFunzione.push(function(){
+            console.log(this);
+        });
+
+        arrayConFunzione[2]();
+        console.log(separatore);
+
+
+        //esercizio: funzione che somma tutti i numeri di un array 
+
+        function sommaNumeri(){
+            let numbArray = [];
+            let somma = 0;
+            while (true){
+                let valore = prompt("Inserisci numero: ")
+                if(valore === "" || valore === null || !isFinite(valore)) break;
+                numbArray.push(+valore);
+            }
+            for (let numero of numbArray){
+                somma += numero;
+            }
+            return somma;
+        }
+        console.log(sommaNumeri());
+        console.log(separatore);
+
+
+        //esercizio somma massima di un array
+
+        function getMaxSubSum(arr){
+            let maxSum = 0;
+
+            for(let i = 0; i < arr.length; i++){
+                let sumFixedStart = 0;
+                for(let j = i; j < arr.length; j ++){
+                    sumFixedStart += arr[j];
+                    maxSum = Math.max(maxSum,sumFixedStart);
+                }
+            }
+            return maxSum;
+        }
+        console.log(getMaxSubSum([-1,2,3,-9])); //5
+        
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
