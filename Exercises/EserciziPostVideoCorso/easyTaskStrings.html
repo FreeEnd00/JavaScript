@@ -197,7 +197,41 @@
                 return false;
             }
         }
-        console.log(checkSpam("Viagra"))
+        console.log(checkSpam("Viagra"))  //true
+
+        //funzione che controlli la lunghezza di una stringa e la accorci con ... se troppo grande
+
+        // function accorciaStringa(str,maxLenght){
+        //     if(str.length > maxLenght){
+        //         let newStr = str.slice(0,(maxLenght-2));
+        //         newStr += "..."
+        //         console.log(newStr)
+        //     }else{
+        //         console.log(str);
+        //     }
+        // }
+
+        function accorciaStringa(str,maxLenght){
+            return (str.length > maxLenght) ?
+            str.slice(0, maxLenght - 3) + "..." : str;
+        }
+        console.log(accorciaStringa("Pippo Baudo è pelato assai",11));
+        console.log(accorciaStringa("italia casa",11));
+
+        //funzione che estragga solo il prezzo rimuovendo la valuta
+        
+        function estraiValuta(prezzo){
+            // return +prezzo.slice(1);
+            // if(prezzo.startsWith("$")){
+            //     console.log(+prezzo.slice(1));
+            // }else{console.log(prezzo)}
+            return (prezzo.startsWith("$")) ?
+            +prezzo.slice(1) : (prezzo.endsWith("€")) ?
+            +prezzo.slice(0,-1) : prezzo;
+
+        }
+
+        console.log(estraiValuta("100€"))
 
     </script>
 </body>
