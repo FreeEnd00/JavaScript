@@ -90,6 +90,213 @@
         console.log(arrIndexOf.indexOf(0)); //1
         console.log(arrIndexOf.indexOf(true)); //2
         console.log(arrIndexOf.indexOf(null)); //-1
+
+        //includes()
+        console.log(arrIndexOf.includes(1) ); //true
+
+        //lastIndexOf()
+        let frutti = ["Mela","Pera","Mela"];
+        console.log(frutti.indexOf("Mela"));//0
+        console.log(frutti.lastIndexOf("Mela")); //2
+
+
+        //NaN includes()
+        let arr = [NaN];
+        console.log(arr.indexOf(NaN)); //-1 sbagliato, dovrebbe essere 0
+        console.log(arr.includes(NaN)); //true
+
+
+        //let result = arr.find(function(item, index, array){
+        //})
+
+        let users = [
+            {id: 1, name: "Jhon"},
+            {id: 2, name: "Robert"},
+            {id: 3, name: "Jeff"},
+            {id: 4, name: "Jhon"}
+        ];
+
+        let user = users.find(item => item.id == 1);
+
+        console.log(user.name); //Jhon
+
+        //findIndex() and findLastIndex()
+        console.log(users.findIndex(user => user.name == "Jhon")); //0
+        console.log(users.findLastIndex(user => user.name == "Jhon")) //3
+
+        
+
+        //filter()
+        let someUsers = users.filter(item => item.id < 3);
+        console.log(someUsers.length);
+
+
+        //map()
+
+        let lenghts = ["Frodo","Gandalf","Gollum"].map(item => item.length);
+        console.log(lenghts); //5,7,6
+
+
+
+        //sort()
+        let arrToSort = [18,14,3];
+        // console.log(arrToSort.sort());
+        
+        // function compareNumeric(a,b){
+        //     if (a > b) return 1;
+        //     if(a == b) return 0;
+        //     if(a < b) return -1;
+        // };
+        // console.log(arrToSort.sort(compareNumeric));
+
+        [1,-2,15,2,0,8].sort(function(a,b){
+            console.log(a + "<>" + b);
+            return a - b;
+        });
+
+        // arrToSort.sort(function(a,b){return a - b;});
+        // console.log(arrToSort);
+
+
+        arrToSort.sort((a,b)=> a-b);
+        console.log(arrToSort);
+
+        let countries = ['Österreich', 'Andorra', 'Vietnam'];
+        console.log(countries.sort((a,b) => a > b ? 1 : -1));
+        console.log(countries.sort((a,b) => a.localeCompare(b)));
+
+
+        //reverse()
+        let reverseArray = [10,9,8,7,6,5,4,3,2,1,0];
+        console.log(reverseArray.reverse());
+
+
+        //split() & join()
+        let names = "Carlotta,Thomas,Michele,Esmeralda,Martina,Aurora,Angela,Juergen,Umberto"
+        let arrNames = names.split(",");
+        for ( let name of arrNames){
+            console.log(`Un messaggio da ${name}`);
+        }
+        let splitTwoNames = names.split(",",2);
+        console.log(splitTwoNames);
+
+        //split() letters
+        let letters = names.split("");
+        console.log(letters);
+
+
+        //join()
+        console.log(letters.join(""));
+
+
+
+        //reduce()/reduceRight() 
+        //let value = arr.reduce(function(accumulator, item, index, array) {
+         // ...
+        // }, [initial]);
+
+        let numeri = [1,2,3,4,5,6,7,8,9,10];
+        // let somma = numeri.reduce((summ,current) => summ + current, 0);
+        let somma = numeri.reduce((summ,current) => summ + current);
+        console.log(somma);
+
+
+        //Array.isArray()
+        console.log(Array.isArray({})); //false
+        console.log(Array.isArray([])); //true
+
+
+        //thisArg
+
+
+        let army = {
+            minAge: 18,
+            maxAge: 27,
+            canJoin(user){
+                return user.age >= this.minAge && user.age < this.maxAge;
+            }
+        };
+        let utenti = [
+            {age:16},
+            {age:20},
+            {age:23},
+            {age: 30}
+        ];
+
+        let soldiers = utenti.filter(army.canJoin,army);
+        console.log(soldiers.length);
+        console.log(soldiers[0].age);
+        console.log(soldiers[1].age);
+
+        //esercizi
+
+
+        //camelize(str)
+
+        function camelize(str){
+           return str
+           .split("-")
+           .map(
+            (word,index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1)
+           )
+           .join("");
+        }
+
+        console.log(camelize("background-color"));
+        console.log(camelize("list-style-image"));
+        console.log(camelize("-webkit-transition"));
+
+
+        //filterRange()
+
+        function filterRange(arr, a, b){
+            return arr.filter(item => (a <= item && item <= b));
+        }
+
+        let arrayNotFiltered = [5,3,8,1];
+        let filtered = filterRange(arrayNotFiltered,1,4);
+        console.log(filtered);
+        console.log(arrayNotFiltered);
+
+
+        //filterRangeInPlace()
+
+        function filterRangeInPlace(arr,a,b){
+            for(let i = 0; i < arr.length; i++){
+                let val = arr[i];
+                if(val < a || val > b){
+                    arr.splice(i,1);
+                    i--;
+                }
+            }
+        };
+
+        let array = [5,3,8,1];
+        filterRangeInPlace(array,1,4);
+        console.log(array);
+
+
+        //sort in decreasing order
+
+        let arrayDisordinato = [5,2,1,-10,8];
+        arrayDisordinato.sort((a,b) => a-b);
+        console.log(arrayDisordinato)
+        arrayDisordinato.reverse();
+        console.log(arrayDisordinato)
+
+
+
+        //copy and sort array
+
+        function copySorted(arr){
+            return arr.slice().sort();
+        }
+
+        let arrayStr = ["HTML","Javascript","CSS"];
+        let sorted = copySorted(arrayStr);
+        console.log(sorted);
+        console.log(arrayStr);
+
     </script>
 </body>
 </html>
