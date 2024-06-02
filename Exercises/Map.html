@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map() JS</title>
+</head>
+<body>
+    <script>
+        //esempio Map()
+        let map = new Map();
+        map.set('1','anulare'); // una chiave stringa
+        map.set(1,"pollice");  // una chiave numerica
+        map.set(true,"indice"); // una chiave booleana
+
+        console.log(map.get('1'));
+        console.log(map.get(1));
+        console.log(map.get(true));
+        console.log(map.size);
+
+        //usare un oggetto come chiave
+        let carlotta = {nome: "Carlotta"};
+         
+        //per ogni utente conserviamo il loro numero di accessi
+        let visitsCountMap = new Map();
+
+        //carlotta diventa la chiave del Map
+        visitsCountMap.set(carlotta,28052024);
+        console.log(visitsCountMap.get(carlotta));
+
+
+
+        let john = { name: "John" };
+        let ben = { name: "Ben" };
+
+        let visitsCountObj = {}; // try to use an object
+
+        visitsCountObj[ben] = 234; // try to use ben object as the key
+        visitsCountObj[john] = 123; // try to use john object as the key, ben object will get replaced
+
+        // That's what got written!
+        console.log( visitsCountObj["[object Object]"] ); // 123
+
+        //iterazioni su Map()
+
+        let recipeMap = new Map([
+            ["pennette", 120],
+            ["macinato",200],
+            ["sale",1.3],
+            ["sugo",100],
+            ["cipolla",0.5],
+            ["aglio",1]
+        ]);
+
+        //itera le chiavi
+        for(let ingredienti of recipeMap.keys()){
+            console.log(ingredienti);
+        }
+
+        //itera i valori
+        for(let quantita of recipeMap.values()){
+            console.log(quantita);
+        };
+
+        //itera [chiave,valore] 
+        for(let ricetta of recipeMap){
+            console.log(ricetta);
+        };
+
+
+        //forEach()
+
+        recipeMap.forEach((value,key,map) => {
+            console.log(`${key}: ${value}`);
+        });
+
+        //converire oggetto in Map()
+
+        let oggetto = {
+            nome: "Carlotta",
+            eta: 22,
+        };
+
+        let mapFromObj = new Map(Object.entries(oggetto));
+        console.log(mapFromObj.get("nome"))
+
+
+        //convertire Map() in oggetto
+        let price = Object.fromEntries([
+            ['banana',1],
+            ['orange',2],
+            ["meat",4],
+        ]);
+
+        console.log(price.orange);
+
+
+        
+    </script>
+</body>
+</html>

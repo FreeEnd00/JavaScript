@@ -69,6 +69,50 @@
             if(result.done) break;
             console.log(result.value);
         }
+
+
+        //Array.from
+
+        let arraylike = {
+            0: "culo",
+            1: "tette",
+            length: 2
+        };
+
+        let arrFrom = Array.from(arraylike);
+        console.log(arrFrom.shift());
+
+        // Array.from(obj[, mapFn, thisArg]) full syntax
+
+        let arrF1 = Array.from(range);
+        console.log(arrF1);
+
+        let arrF2 = Array.from(range, num => num * num);
+        console.log(arrF2);
+
+        let arrF3 = Array.from(str);
+        console.log(arrF3);
+        console.log(arrF3[1]);
+        console.log(arrF3.length);
+
+        let chars = []; // Array.from internally does the same loop
+        for (let char of str) {
+            chars.push(char);
+        };
+        console.log(chars); //"uguale" a arrF3 riga 94
+
+        function slice(str,start,end){
+            return Array.from(str).slice(start,end).join("");
+        };
+
+        let strPlus = "𝒳😂𩷶"
+        console.log(slice(strPlus,1,3));
+        // console.log(strPlus.slice(1,3)) garbage (two pieces from different surrogate pairs)
+
+        
+
+
+
     </script>
 </body>
 </html>
