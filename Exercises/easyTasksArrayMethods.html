@@ -297,6 +297,192 @@
         console.log(sorted);
         console.log(arrayStr);
 
+
+
+        //Calculator
+
+
+        function Calculator(){
+            this.methods = {
+                "-": (a,b) => a - b,
+                "+": (a,b) => a + b
+            };
+            
+            this.calculate = function(str){
+                let split = str.split(" "),
+                    a = +split[0],
+                    op = split[1],
+                    b = +split[2];
+                
+                if (!this.methods[op] || isNaN(a) || isNaN(b)){
+                    return NaN;
+                }    
+
+                return this.methods[op](a,b);
+            };
+
+            this.addMethod = function(name, func){
+                this.methods[name] = func;
+            };
+        }
+
+        let calc = new Calculator;
+        console.log(calc.calculate("3 + 7"));
+
+        let powerCalc = new Calculator;
+        powerCalc.addMethod("*",(a,b)=> a * b);
+        powerCalc.addMethod("/",(a,b)=> a / b);
+        powerCalc.addMethod("**", (a,b)=> a ** b);
+
+        let result = powerCalc.calculate("2 ** 3");
+        console.log(result);
+
+
+
+
+        //map to names
+
+        let john = {nome: "John", age: 25};
+        let pete = {nome: "Pete", age: 22};
+        let mary = {nome: "Mary", age: 30};
+
+        let usersToMap = [john,pete,mary];
+
+        let nomi = usersToMap.map(item => item.nome);
+
+        console.log(nomi);
+
+
+        //map to objects
+
+        let carlotta = {nome: "Carlotta", cognome: "Marcialis", id:1};
+        let thomas = {nome: "Thomas", cognome: "Ginder", id:2};
+        let aurora = {nome: "Aurora", cognome: "Ginder", id:3};
+
+        let utentiReali = [carlotta,thomas,aurora];
+
+            let utentiMappati = utentiReali.map(utente => ({
+                fullName: `${utente.nome} ${utente.cognome}`,
+                id: utente.id,
+            }));
+
+        console.log(utentiMappati);
+        console.log(utentiMappati[0].id);
+        console.log(utentiMappati[0].fullName);
+
+
+
+        //sort users by age
+        function sortByAge(array){
+            array.sort((a,b) => a.eta - b.eta);
+        }
+        let michele = {nome: "Michele", eta: 25};
+        let marta = {nome: "Marta", eta: 22};
+        let cristian = {nome: "Cristian", eta: 17};
+
+        let cugini = [michele,marta,cristian];
+
+        sortByAge(cugini);
+        console.log(cugini[0].nome);
+        console.log(cugini[1].nome);
+        console.log(cugini[2].nome);
+
+
+        //Shuffle()
+
+        // function shuffle(array){
+        //     array.sort(() => Math.random() - 0.5);
+        // }
+
+        // let arrayDaRandomizzare = [1,2,3,4,5,6,7,8,9,0];
+        // shuffle(arrayDaRandomizzare);
+        // console.log(arrayDaRandomizzare);
+        
+
+   
+
+        function shuffle(array){
+            for(let i = array.length - 1; i > 0; i--){
+                let j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        let count = {
+        '123': 0,
+        '132': 0,
+        '213': 0,
+        '231': 0,
+        '321': 0,
+        '312': 0
+        };
+        for(let i = 0; i < 1000000; i ++){
+            let array = [1,2,3];
+            shuffle(array);
+            count[array.join("")]++;
+        }
+
+        for(let key in count){
+            console.log(`${key}: ${count[key]}`);
+        }
+
+
+
+        //getAvarangeAge()
+
+
+        function getAvarangeAge(users){
+            return users.reduce((prev,user) => prev + user.eta, 0) / users.length;
+        }
+
+        let mamma = {nome: "Angela", eta: 60};
+        let papa = {nome: "Juergen", eta: 55};
+        let anonimo = {nome: "Sconosciuto", eta: 53};
+
+        let usersGenitori = [mamma,papa,anonimo];
+
+        console.log(getAvarangeAge(usersGenitori));     
+
+
+
+        //unique()
+
+
+        function unique(arr){
+            let result = [];
+
+            for(let str of arr){
+                if(!result.includes(str)){
+                    result.push(str);
+                }
+            }
+            return result;
+        }
+
+        let strings = ["Ano", "Balena", "Salame", "Castoro", "Ano", "Salame", "Cerbiatto", "Istrice", "Istrice","Lavoro"];
+
+        console.log(unique(strings));
+
+
+
+        //groupById()
+
+
+        function groupById(arr){
+            return arr.reduce((obj,value) => {
+                obj[value.id] = value;
+                return obj;
+            },{})
+        }
+
+        let utentiID = [
+            {id: "gimmy", nome: "Gimmy Smith", eta: 29},
+            {id: "rose", nome: "Rose Nelson", eta: 24},
+            {id: "peter", nome: "Peter Jackson", eta: 34},
+        ];
+
+        let utentiDaId = groupById(utentiID);
+
+        console.log(utentiDaId);
     </script>
 </body>
 </html>

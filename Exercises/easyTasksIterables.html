@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterables JS</title>
+</head>
+<body>
+    <script>
+        //primo esempio
+
+        let range = {
+            from: 1,
+            to: 5,
+
+            [Symbol.iterator](){
+                this.current = this.from;
+                return this;
+            },
+
+            next(){
+                if(this.current <= this.to){
+                    return{done: false, value: this.current++};
+                }else{
+                    return{done: true};
+                }
+            }
+        };
+
+        // range[Symbol.iterator] = function(){
+        //     return{
+        //         current: this.from,
+        //         last: this.to,
+
+        //         next(){
+        //             if(this.current <= this.last){
+        //                  return{done: false, value: this.current++};
+        //             }else{
+        //                 return{done: true};
+        //             }
+        //         }
+        //     };
+        // };
+        for(let num of range){
+            console.log(num);
+        }
+
+
+        //iterate string
+
+        for(let char of "test"){
+            console.log(char);
+        }
+
+        let str = '𝒳😂';
+        for(let char of str){
+            console.log(char);
+        }
+
+
+        //calling a iterator explicitly
+
+        let text = "Hello";
+
+        let iterator = text[Symbol.iterator]();
+
+        while(true){
+            let result = iterator.next();
+            if(result.done) break;
+            console.log(result.value);
+        }
+    </script>
+</body>
+</html>
