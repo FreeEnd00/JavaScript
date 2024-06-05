@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeakMap & WeakSet JS</title>
+</head>
+<body>
+    <script>
+        //weakMap le chiavi devono essere oggetti non valori primitivi
+        let weakMap = new WeakMap();
+
+        let obj = {};
+
+        weakMap.set(obj,"ok");
+
+        // weakMap.set("test","Errore");
+
+
+        //weakSet funziona similmente a WeakMap
+
+
+        //Conserva messaggi non letti
+        let messaggi = [
+            {text:"Ciao", from: "Carlo"},
+            {text:"Come va", from: "Carlo"},
+            {text:"Addio", from:"Cogliona"},
+        ];
+        
+        let readMessages = new WeakSet();
+
+        readMessages.add(messaggi[0]);
+        readMessages.add(messaggi[1]);
+        readMessages.add(messaggi[1]);
+
+        console.log("Messaggio 0:" + readMessages.has(messaggi[0]));
+
+        messaggi.shift();
+
+        let isRead = Symbol("isRead");
+        messaggi[0][isRead] = true;
+
+
+
+        //conserva messaggi letti
+
+        let messages = [
+            {text:"Ciao", from: "Carlo"},
+            {text:"Come va", from: "Carlo"},
+            {text:"Addio", from:"Cogliona"},
+        ];
+
+        let readMap = new weakMap();
+
+        readMap.set(messages[0], new Date(2024,6,10));
+
+    </script>
+</body>
+</html>
