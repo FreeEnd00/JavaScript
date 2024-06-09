@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.keys,value,entries JS</title>
+</head>
+<body>
+    <script>
+    // diversamente da Map Set e Array i metodi .keys(), .values() e entries() per gli oggetti vanno
+    // scritti così: Object.keys(obj), Object.values(obj), Object.entries(obj);
+    let user = {
+        name: "Jhon",
+        age: 24,
+    };
+
+    console.log(Object.keys(user));
+    console.log(Object.values(user));
+    console.log(Object.entries(user));
+
+
+    for(let values of Object.values(user)){
+        console.log(values);
+    }
+
+
+// Object.keys/values/entries ignore symbolic properties
+// Just like a for..in loop, these methods ignore properties that use Symbol(...) as keys.
+// Usually that’s convenient. But if we want symbolic keys too, then there’s a separate method 
+//Object.getOwnPropertySymbols that returns an array of only symbolic keys. Also, there exist a
+// method Reflect.ownKeys(obj) that returns all keys.
+
+
+//trasformare oggetti
+
+
+let prices = {
+    banana : 1,
+    orange: 2,
+    meat: 4
+};
+
+let doublePrices = Object.fromEntries(
+    Object.entries(prices).map(entry => [entry[0], entry[1] * 2])
+);
+
+console.log(doublePrices.meat);
+    </script>
+</body>
+</html>
