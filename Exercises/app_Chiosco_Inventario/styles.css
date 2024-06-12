@@ -1,0 +1,27 @@
+h1{
+    display: flex;
+    justify-content: center;
+    color: rgb(15, 235, 15);
+    font-weight: 900;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.contenitoreBibite{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 0.5rem;
+    row-gap: 0.1rem;
+    padding-left: 2rem;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+  }
+#quantity{
+    border: 1px solid gray;
+    width: 1rem;
+
+}
